@@ -3,20 +3,6 @@
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
 
-// TikTok Icon Component
-const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-  </svg>
-);
-
 export default function Footer() {
   return (
     <footer className="bg-[var(--midnight-blue)] text-[var(--cream)] border-t-2 border-[var(--gold)]/30 py-16">
@@ -34,15 +20,6 @@ export default function Footer() {
               <Instagram size={24} className="text-[var(--midnight-blue)]" />
             </a>
             <a
-              href="https://lite.tiktok.com/t/ZSH3MrbvkwT7Y-SuE9Z/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-              className="w-14 h-14 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
-            >
-              <TikTokIcon size={24} className="text-[var(--midnight-blue)]" />
-            </a>
-            <a
               href="https://www.facebook.com/share/17WpAhqCSv/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
@@ -55,7 +32,7 @@ export default function Footer() {
 
           {/* Tagline */}
           <h3 className="text-xl sm:text-4xl font-bold text-[var(--gold)] glow-gold text-center">
-            An RnB Event Like No Other
+            Angels of the Promise Land
           </h3>
 
           {/* Navigation Links */}

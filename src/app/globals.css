@@ -1,4 +1,3 @@
-/* Updated: 2025-11-13T21:46:18.917Z */
 /* Updated: 2025-11-13T19:19:59.340Z */
 /* Updated: 2025-11-13T18:39:00.812Z */
 /* Updated: 2025-11-13T18:06:01.340Z */
@@ -21,7 +20,7 @@
 /* Updated: 2025-11-12T08:18:16.501Z */
 /* Updated: 2025-11-11T13:07:53.795Z */
 /* Updated: 2025-11-11T10:23:15.203Z */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -170,7 +169,7 @@
   body {
     background-color: #1A0F0A;
     color: #F5E6D3;
-    font-family: 'Cormorant Garamond', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: 0.02em;
@@ -181,26 +180,15 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
   }
   
-  h1 {
-    font-family: 'Cinzel Decorative', serif;
-    font-weight: 900;
-  }
-  
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-  }
-  
   p {
-    font-family: 'Cormorant Garamond', 'Manrope', 'Inter', serif;
-    font-weight: 400;
+    font-family: 'Manrope', 'Inter', sans-serif;
   }
   
   button, a {
@@ -291,73 +279,6 @@
     }
   }
   
-  @keyframes fly-across {
-    0% {
-      transform: translateX(-100px) translateY(0px);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    90% {
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateX(calc(100vw + 100px)) translateY(-30px);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes fly-across-3d {
-    0% {
-      transform: translateX(-100px) translateY(0px) translateZ(0px) rotateY(0deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.9;
-    }
-    25% {
-      transform: translateX(25vw) translateY(-10px) translateZ(30px) rotateY(5deg);
-    }
-    50% {
-      transform: translateX(50vw) translateY(-20px) translateZ(50px) rotateY(10deg);
-    }
-    75% {
-      transform: translateX(75vw) translateY(-15px) translateZ(30px) rotateY(5deg);
-    }
-    90% {
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateX(calc(100vw + 100px)) translateY(-30px) translateZ(0px) rotateY(0deg);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes flap {
-    0%, 100% {
-      transform: scaleY(1);
-    }
-    50% {
-      transform: scaleY(0.8);
-    }
-  }
-  
-  @keyframes flap-3d {
-    0%, 100% {
-      transform: rotateX(0deg) scaleY(1);
-    }
-    25% {
-      transform: rotateX(-15deg) scaleY(0.85);
-    }
-    50% {
-      transform: rotateX(0deg) scaleY(0.7);
-    }
-    75% {
-      transform: rotateX(15deg) scaleY(0.85);
-    }
-  }
-  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -388,24 +309,8 @@
     animation: fade-in-up 0.8s ease-out forwards;
   }
   
-  .animate-fly-across {
-    animation: fly-across 15s ease-in-out infinite;
-  }
-  
-  .animate-fly-across-3d {
-    animation: fly-across-3d 15s ease-in-out infinite;
-  }
-  
-  .animate-flap {
-    animation: flap 0.5s ease-in-out infinite;
-  }
-  
-  .animate-flap-3d {
-    animation: flap-3d 0.5s ease-in-out infinite;
-  }
-  
   .section-light {
-    background: linear-gradient(180deg, #1A1A3E 0%, #2D1B3D 50%, #1A1A3E 100%);
+    background: linear-gradient(180deg, #2D1B3D 0%, #1A1A3E 100%);
     color: #F5E6D3;
   }
   
@@ -423,7 +328,7 @@
     background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
     color: #1A0F0A;
     border: 2px solid #D4AF37;
-    font-family: 'Cinzel', 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -454,7 +359,7 @@
     background: transparent;
     color: #D4AF37;
     border: 2px solid #D4AF37;
-    font-family: 'Cinzel', 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
