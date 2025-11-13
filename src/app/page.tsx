@@ -65,6 +65,7 @@ const latestNews = [
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
 
@@ -72,6 +73,13 @@ export default function Home() {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
@@ -173,6 +181,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {shouldLoadVideo && (
             <video
+              key={isMobile ? 'mobile' : 'desktop'}
               ref={videoRef}
               autoPlay
               loop
@@ -186,7 +195,13 @@ export default function Home() {
               className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-panel]:hidden [&::-webkit-media-controls-play-button]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
               style={{ pointerEvents: 'none', objectFit: 'cover' }}
             >
-              <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-aec568bd-4b1a-413c-9858-e2507f2bab2a-2-1763070068199.mp4" type="video/mp4" />
+              <source 
+                src={isMobile 
+                  ? "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-1763071804044.mp4"
+                  : "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-aec568bd-4b1a-413c-9858-e2507f2bab2a-2-1763070068199.mp4"
+                } 
+                type="video/mp4" 
+              />
             </video>
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
