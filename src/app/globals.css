@@ -290,6 +290,32 @@
     }
   }
   
+  @keyframes fly-across {
+    0% {
+      transform: translateX(-100px) translateY(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(calc(100vw + 100px)) translateY(-30px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes flap {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0.8);
+    }
+  }
+  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -318,6 +344,14 @@
   
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .animate-fly-across {
+    animation: fly-across 15s ease-in-out infinite;
+  }
+  
+  .animate-flap {
+    animation: flap 0.5s ease-in-out infinite;
   }
   
   .section-light {
