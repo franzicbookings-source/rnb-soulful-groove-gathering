@@ -352,8 +352,8 @@ export default function Home() {
       <section className="section-purple py-6 sm:py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-3 sm:gap-5 max-w-4xl mx-auto">
-            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white glow-gold">
-              Be Part of the Magic - Secure Your Spot Today!
+            <h2 className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white glow-gold px-2">
+              Get Your Ticket or Volunteer - Join the Magic Today!
             </h2>
             
             <div className="flex flex-row gap-2 sm:gap-6 w-full sm:w-auto">
