@@ -352,9 +352,8 @@ export default function Home() {
       <section className="section-purple py-6 sm:py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-3 sm:gap-5 max-w-4xl mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white glow-gold">
-              <span className="block">DON'T MISS OUT</span>
-              <span className="block">TICKETS SELLING FAST!</span>
+            <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white glow-gold">
+              An RnB Event Like No Other - Get Your Spot Before It's Gone!
             </h2>
             
             <div className="flex flex-row gap-2 sm:gap-6 w-full sm:w-auto">
