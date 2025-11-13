@@ -1,0 +1,12 @@
+# RnB & Soulful Groove Gathering - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow admin or api routes if any
+Disallow: /api/
