@@ -34,15 +34,6 @@ export default function Footer() {
               <Instagram size={24} className="text-[var(--midnight-blue)]" />
             </a>
             <a
-              href="https://www.facebook.com/share/17WpAhqCSv/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="w-14 h-14 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
-            >
-              <Facebook size={24} className="text-[var(--midnight-blue)]" />
-            </a>
-            <a
               href="https://lite.tiktok.com/t/ZSH3MrbvkwT7Y-SuE9Z/"
               target="_blank"
               rel="noopener noreferrer"
@@ -50,6 +41,15 @@ export default function Footer() {
               className="w-14 h-14 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
             >
               <TikTokIcon size={24} className="text-[var(--midnight-blue)]" />
+            </a>
+            <a
+              href="https://www.facebook.com/share/17WpAhqCSv/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-14 h-14 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+            >
+              <Facebook size={24} className="text-[var(--midnight-blue)]" />
             </a>
           </div>
 
