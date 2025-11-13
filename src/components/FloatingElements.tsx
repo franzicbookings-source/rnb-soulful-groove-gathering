@@ -47,32 +47,66 @@ export default function FloatingElements() {
         ))}
       </div>
       
-      {/* Flying Bird across cards */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-50">
-        <div className="absolute animate-fly-across" style={{ top: '40%' }}>
-          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-flap">
-            <path
-              d="M12 2C12 2 8 4 6 8C4 12 4 16 6 18C8 20 12 22 12 22M12 2C12 2 16 4 18 8C20 12 20 16 18 18C16 20 12 22 12 22M12 2V8M4 12H20"
-              stroke="url(#birdGradient)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="url(#birdFill)"
-              fillOpacity="0.6"
-            />
-            <circle cx="9" cy="10" r="1.5" fill="#FFD700" />
-            <defs>
-              <linearGradient id="birdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFD700" />
-                <stop offset="50%" stopColor="#F4E4C1" />
-                <stop offset="100%" stopColor="#B8860B" />
-              </linearGradient>
-              <linearGradient id="birdFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#D4AF37" />
-                <stop offset="100%" stopColor="#B8860B" />
-              </linearGradient>
-            </defs>
-          </svg>
+      {/* 3D Flying Bird behind cards */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-[5]" style={{ perspective: '1000px' }}>
+        <div className="absolute animate-fly-across-3d" style={{ top: '40%' }}>
+          <div className="animate-flap-3d" style={{ transformStyle: 'preserve-3d' }}>
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Bird shadow for depth */}
+              <path
+                d="M12 2C12 2 8 4 6 8C4 12 4 16 6 18C8 20 12 22 12 22M12 2C12 2 16 4 18 8C20 12 20 16 18 18C16 20 12 22 12 22M12 2V8M4 12H20"
+                stroke="#000000"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="#000000"
+                fillOpacity="0.3"
+                transform="translate(1, 1)"
+                filter="blur(2px)"
+              />
+              
+              {/* Main bird body */}
+              <path
+                d="M12 2C12 2 8 4 6 8C4 12 4 16 6 18C8 20 12 22 12 22M12 2C12 2 16 4 18 8C20 12 20 16 18 18C16 20 12 22 12 22M12 2V8M4 12H20"
+                stroke="url(#birdGradient)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="url(#birdFill)"
+                fillOpacity="0.8"
+              />
+              
+              {/* Bird eye with highlight */}
+              <circle cx="9" cy="10" r="1.5" fill="#1A0F0A" />
+              <circle cx="9.5" cy="9.5" r="0.5" fill="#FFD700" />
+              
+              {/* Wing details */}
+              <path
+                d="M6 12C6 12 4 10 3 10M18 12C18 12 20 10 21 10"
+                stroke="url(#wingDetail)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              
+              <defs>
+                <linearGradient id="birdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFD700" />
+                  <stop offset="50%" stopColor="#F4E4C1" />
+                  <stop offset="100%" stopColor="#B8860B" />
+                </linearGradient>
+                <linearGradient id="birdFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#D4AF37" />
+                  <stop offset="50%" stopColor="#C4A57B" />
+                  <stop offset="100%" stopColor="#B8860B" />
+                </linearGradient>
+                <linearGradient id="wingDetail" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#F4E4C1" />
+                  <stop offset="100%" stopColor="#D4AF37" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
         </div>
       </div>
     </>
