@@ -32,7 +32,7 @@ export default function Footer() {
 
           {/* Tagline */}
           <h3 className="text-xl sm:text-4xl font-bold text-[var(--gold)] glow-gold text-center">
-            Angels of the Promise Land
+            An RnB Event Like No Other
           </h3>
 
           {/* Navigation Links */}
