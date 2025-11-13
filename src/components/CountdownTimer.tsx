@@ -43,7 +43,7 @@ export default function CountdownTimer() {
           <span className="font-black">14 DECEMBER</span> 2025
         </h1>
         <p className="text-xl sm:text-2xl md:text-3xl text-[var(--cream)]/95 font-light tracking-wide">
-          <span className="font-bold">Majuba</span> Stadium, Newcastle
+          <span className="font-bold">Majuba Stadium, Newcastle</span>
         </p>
       </div>
 
