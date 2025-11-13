@@ -310,7 +310,7 @@
   }
   
   .section-light {
-    background: linear-gradient(180deg, #1A1A3E 0%, #0F0F2E 50%, #1A0F0A 100%);
+    background: linear-gradient(180deg, #2D1B3D 0%, #1A1A3E 40%, #0F0F2E 100%);
     color: #F5E6D3;
   }
   
@@ -320,7 +320,7 @@
   }
   
   .section-purple {
-    background: linear-gradient(180deg, #3D2C2E 0%, #2D1B3D 50%, #1A1A3E 100%);
+    background: linear-gradient(180deg, #1A0F0A 0%, #2D1B3D 40%, #1A1A3E 100%);
     color: #F5E6D3;
   }
   
