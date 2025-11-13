@@ -5,11 +5,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
+        hostname: 'slelguoygbfzlpylpxfs.supabase.co',
+        port: '',
+        pathname: '/storage/v1/**',
       },
     ],
   },
@@ -22,4 +20,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1763059206628
