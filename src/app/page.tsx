@@ -172,7 +172,7 @@ export default function Home() {
         video.controls = false;
         await video.play();
       } catch (err) {
-        console.log('Autoplay attempt failed:', err);
+        // Autoplay blocked - user interaction required
       }
     };
 
