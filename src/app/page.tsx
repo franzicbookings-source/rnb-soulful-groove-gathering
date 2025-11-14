@@ -349,98 +349,62 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="section-purple py-12 sm:py-20 px-4 relative overflow-hidden">
+      <section className="section-purple py-8 sm:py-12 px-4 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[var(--gold)] blur-3xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-40 h-40 rounded-full bg-[var(--gold)] blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="container mx-auto max-w-5xl relative z-10">
           {/* Main CTA Card */}
-          <div className="bg-gradient-to-br from-black/60 via-[#2D1B3D]/40 to-black/60 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl">
+          <div className="bg-gradient-to-br from-black/60 via-[#2D1B3D]/40 to-black/60 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-3xl p-6 sm:p-8 shadow-2xl">
             
             {/* Top Badge */}
             <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-[var(--gold)]/10 border border-[var(--gold)]/40 rounded-full">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[var(--gold)]/10 border border-[var(--gold)]/40 rounded-full">
                 <div className="w-2 h-2 rounded-full bg-[var(--gold)] animate-pulse"></div>
-                <span className="text-[var(--gold)] text-sm sm:text-base font-bold uppercase tracking-wider">Limited Availability</span>
+                <span className="text-[var(--gold)] text-sm font-bold uppercase tracking-wider">Limited Availability</span>
               </div>
-            </div>
-
-            {/* Main Heading */}
-            <div className="text-center mb-8 sm:mb-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                <span className="block text-[var(--gold)] glow-gold">Secure Your Spot</span>
-                <span className="block mt-2">Angels of the Promise Land</span>
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-[var(--cream)]/80 max-w-3xl mx-auto px-4">
-                Experience an unforgettable celebration of RnB & soulful vibes. 
-                <span className="block mt-2 text-[var(--gold)] font-semibold">December 14, 2025 • Majuba College Stadium</span>
-              </p>
             </div>
 
             {/* Event Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 max-w-4xl mx-auto">
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">4+</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">15+</div>
                 <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Top Artists</div>
               </div>
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center">
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">8 Hours</div>
                 <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Non-Stop Music</div>
               </div>
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">1000+</div>
-                <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Soul Seekers</div>
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">50+</div>
+                <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Volunteers</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://computicket.com/event/rnb-soulful-groove-gathering-summer-edition-/f6574621-5e8d-4a8a-aba9-8fa8bb6651aM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-base sm:text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[var(--gold)]/50 w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-base rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[var(--gold)]/50 w-full sm:w-auto"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--gold-light)] to-[var(--gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <Ticket className="w-5 h-5 sm:w-6 sm:h-6 relative z-10" />
+                <Ticket className="w-5 h-5 relative z-10" />
                 <span className="relative z-10 whitespace-nowrap">Get Tickets Now</span>
               </a>
               
               <Link
                 href="/volunteer"
-                className="inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-transparent border-2 border-[var(--gold)] text-[var(--gold)] font-semibold text-base sm:text-lg rounded-full hover:bg-[var(--gold)]/10 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 bg-transparent border-2 border-[var(--gold)] text-[var(--gold)] font-semibold text-base rounded-full hover:bg-[var(--gold)]/10 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Heart className="w-5 h-5" />
                 <span className="whitespace-nowrap">Join as Volunteer</span>
               </Link>
             </div>
-
-            {/* Trust Badges */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-[var(--cream)]/60">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-[var(--gold)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Secure Payment via Computicket</span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 rounded-full bg-[var(--cream)]/30"></div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-[var(--gold)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Instant E-Ticket Delivery</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom tagline */}
-          <div className="text-center mt-8">
-            <p className="text-sm sm:text-base text-[var(--cream)]/50 italic">
-              "Where RnB meets the soul – your journey to the Promise Land begins here"
-            </p>
           </div>
         </div>
       </section>
