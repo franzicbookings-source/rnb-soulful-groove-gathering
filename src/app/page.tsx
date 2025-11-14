@@ -317,7 +317,7 @@ export default function Home() {
                 opacity: videoPlaying ? 1 : 0
               }}
             >
-              <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763112370070.mp4?v=2" type="video/mp4" />
+              <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763151604813.mp4" type="video/mp4" />
             </video>
           )}
         </div>
