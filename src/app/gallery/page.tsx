@@ -32,6 +32,16 @@ const galleryDec2024 = [
   { id: 21, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554691509.png', alt: 'December 2024 - Festival attendees in the crowd' },
   { id: 22, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554711925.png', alt: 'December 2024 - Performance moment from the stage' },
   { id: 23, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554737894.png', alt: 'December 2024 - Artist performing on stage' },
+  { id: 32, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/939ddbec-1299-4352-9d9f-1c8dba13a8aa-1763083521085.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Outdoor venue with festival crowd' },
+  { id: 33, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/e4bdc666-bd52-4dc4-875b-eaee85bff358-1763083521394.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Night event with stage lighting' },
+  { id: 34, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/45ac3af6-1d0b-451b-9e77-fda2395d40e6-1763083521209.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Guests in white theme attire' },
+  { id: 35, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/fc539d6c-8528-4321-b8e6-17c532e4cad7-1763083520913.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Live performance on stage' },
+  { id: 36, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4ce02b8f-ebef-4c6f-b0f1-713e2f822ce7-1763083521344.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Festival attendees enjoying the event' },
+  { id: 37, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/b154868c-8735-4b4c-a115-a6199f9c42bd-1763083521087.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Guests relaxing under branded umbrellas' },
+  { id: 38, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/8b205cf4-238c-4fc0-81e8-66456fc39e16-1763083520753.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Attendees in white outfits at outdoor venue' },
+  { id: 39, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/cba37b2b-1f5c-48c7-9cd8-548e40e066d9-1763083518828.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Guests enjoying refreshments in VIP lounge' },
+  { id: 40, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/7ed8c775-3bc2-4e97-881b-19a8a031c84d-1763083521137.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Friends relaxing at the event' },
+  { id: 41, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4457bac7-c0ca-4df5-b654-2eee920648e3-1763083521318.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Crowd enjoying the festival atmosphere' },
 ];
 
 const galleryCommunity = [
