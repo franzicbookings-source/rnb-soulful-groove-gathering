@@ -11,8 +11,6 @@ import { X, Calendar, Download } from 'lucide-react';
 const galleryJune2024 = [
   { id: 18, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554565368.png', alt: 'June 2024 - Group photo at the event' },
   { id: 19, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554595833.png', alt: 'June 2024 - Guest enjoying the festival moment' },
-  { id: 1, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762502444776.png', alt: 'June 2024 - Crowd enjoying the festival' },
-  { id: 2, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762502472319.png', alt: 'June 2024 - Festival atmosphere' },
   { id: 14, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554458997.png', alt: 'June 2024 - Attendees relaxing at the gathering' },
   { id: 15, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554478564.png', alt: 'June 2024 - Guests enjoying the lounge area' },
   { id: 16, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554495695.png', alt: 'June 2024 - Festival crowd under the tent' },
