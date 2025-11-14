@@ -39,6 +39,13 @@ const artists = [
   station: 'METRO FM',
   image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762939472607.png?width=8000&height=8000&resize=contain',
   bio: 'Featured DJ for Groove Gathering'
+},
+{
+  id: 5,
+  name: 'DJ ASH',
+  station: 'FEATURED DJ',
+  image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0737-1763113434256.jpeg?width=8000&height=8000&resize=contain',
+  bio: 'Dynamic DJ bringing high-energy soulful beats'
 }];
 
 const latestNews = [

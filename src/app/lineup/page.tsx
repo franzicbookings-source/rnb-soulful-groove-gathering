@@ -49,6 +49,16 @@ const artists = [
     genre: 'Uplifting Soul & Powerful Vocals',
     experience: '12+ years',
     speciality: 'Emotional Connection & Dynamic Energy'
+  },
+  { 
+    id: 5, 
+    name: 'DJ ASH',
+    station: 'FEATURED DJ', 
+    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0737-1763113434256.jpeg?width=8000&height=8000&resize=contain', 
+    bio: 'DJ ASH is a dynamic force in the RnB and Soulful music scene, known for bringing high-energy performances that ignite the dance floor. With an innate ability to read the crowd and an extensive musical repertoire, DJ ASH crafts sets that blend smooth RnB classics with contemporary soul and upbeat grooves. His versatile style seamlessly transitions between nostalgic throwbacks and modern hits, creating an electrifying atmosphere that keeps audiences engaged from start to finish. DJ ASH\'s passion for music and commitment to delivering unforgettable experiences have earned him recognition as one of the most exciting talents in the industry.',
+    genre: 'Contemporary RnB & Soulful Grooves',
+    experience: '6+ years',
+    speciality: 'High-Energy Sets & Crowd Connection'
   }
 ];
 
