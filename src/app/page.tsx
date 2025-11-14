@@ -413,8 +413,8 @@ export default function Home() {
                 <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Top Artists</div>
               </div>
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2 whitespace-nowrap">{hoursCount}</div>
-                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Hours Music</div>
+                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{hoursCount}</div>
+                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Hours of Music</div>
               </div>
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
                 <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{volunteersCount}+</div>
