@@ -61,7 +61,7 @@ export default function ContactsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* Email Card */}
             <a 
-              href="mailto:info@rnbsoulfulgroove.co.za"
+              href="mailto:info@rnbsoulfulgroovegathering.co.za"
               className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 hover:border-white/40 transition-all"
             >
               <div className="flex flex-col items-center text-center gap-3">
@@ -70,7 +70,7 @@ export default function ContactsPage() {
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-sm sm:text-base mb-1">Email</h3>
-                  <p className="text-[#CCCCCC] text-xs sm:text-sm break-words">info@rnbsoulfulgroove.co.za</p>
+                  <p className="text-[#CCCCCC] text-xs sm:text-sm break-words">info@rnbsoulfulgroovegathering.co.za</p>
                 </div>
               </div>
             </a>
@@ -230,6 +230,25 @@ export default function ContactsPage() {
               className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/30 hover:bg-white/20 hover:border-white transition-all duration-300"
             >
               <Instagram size={24} className="text-white" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@rnbsoulfulgroove"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/30 hover:bg-white/20 hover:border-white transition-all duration-300"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="text-white"
+              >
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+                  fill="currentColor"
+                />
+              </svg>
             </a>
           </div>
         </div>
