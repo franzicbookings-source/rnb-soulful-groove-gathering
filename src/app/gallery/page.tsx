@@ -42,6 +42,16 @@ const galleryDec2024 = [
   { id: 39, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/cba37b2b-1f5c-48c7-9cd8-548e40e066d9-1763083518828.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Guests enjoying refreshments in VIP lounge' },
   { id: 40, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/7ed8c775-3bc2-4e97-881b-19a8a031c84d-1763083521137.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Friends relaxing at the event' },
   { id: 41, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4457bac7-c0ca-4df5-b654-2eee920648e3-1763083521318.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Crowd enjoying the festival atmosphere' },
+  { id: 92, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0736-1763112153818.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Excited crowd celebrating with hands raised' },
+  { id: 93, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0731-1763112121113.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Group photo with friends at VIP lounge' },
+  { id: 94, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0734-1763112154024.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Three women relaxing on yellow lounge furniture' },
+  { id: 95, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0733-1763112152056.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Friends enjoying refreshments at outdoor venue' },
+  { id: 96, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0732-1763112153349.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Couple at event with Savanna branding' },
+  { id: 97, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0731-1763112144907.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Guest celebrating with beverage in hand' },
+  { id: 98, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0730-1763112153719.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Three friends in white with pink branding backdrop' },
+  { id: 99, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0729-1763112125930.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Friends having fun together at the event' },
+  { id: 100, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0728-1763112134726.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Large crowd at outdoor venue with branded umbrellas' },
+  { id: 101, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0727-1763112147588.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Female artist performing live on stage' },
 ];
 
 const galleryJune2025 = [
