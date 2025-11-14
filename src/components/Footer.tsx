@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
+import { SiTiktok } from 'react-icons/si';
 
 export default function Footer() {
   return (
@@ -18,6 +19,15 @@ export default function Footer() {
               className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
             >
               <Instagram size={18} className="sm:w-5 sm:h-5 text-[var(--midnight-blue)]" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@rnb.soulful.groov?_r=1&_t=ZS-91NeUKEeNKpUser"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[var(--gold)] hover:bg-[var(--gold-light)] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+            >
+              <SiTiktok size={18} className="sm:w-5 sm:h-5 text-[var(--midnight-blue)]" />
             </a>
             <a
               href="https://www.facebook.com/share/17WpAhqCSv/?mibextid=wwXIfr"
