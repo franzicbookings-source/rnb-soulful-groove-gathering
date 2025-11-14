@@ -413,8 +413,8 @@ export default function Home() {
                 <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Top Artists</div>
               </div>
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
-                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{hoursCount} Hours</div>
-                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Non-Stop Music</div>
+                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2 whitespace-nowrap">{hoursCount}</div>
+                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Hours Music</div>
               </div>
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
                 <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{volunteersCount}+</div>
@@ -423,24 +423,24 @@ export default function Home() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-row items-center justify-center gap-3 sm:gap-4">
               <a
                 href="https://computicket.com/event/rnb-soulful-groove-gathering-summer-edition-/f6574621-5e8d-4a8a-aba9-8fa8bb6651aM"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-base rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[var(--gold)]/50 w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] text-black font-bold text-sm sm:text-base rounded-full overflow-hidden transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[var(--gold)]/50 flex-1"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--gold-light)] to-[var(--gold)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <Ticket className="w-5 h-5 relative z-10" />
-                <span className="relative z-10 whitespace-nowrap">Get Tickets Now</span>
+                <Ticket className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 flex-shrink-0" />
+                <span className="relative z-10 whitespace-nowrap text-xs sm:text-base">Get Tickets</span>
               </a>
               
               <Link
                 href="/volunteer"
-                className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3 sm:py-4 bg-transparent border-2 border-[var(--gold)] text-[var(--gold)] font-semibold text-base rounded-full hover:bg-[var(--gold)]/10 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-10 py-3 sm:py-4 bg-transparent border-2 border-[var(--gold)] text-[var(--gold)] font-semibold text-sm sm:text-base rounded-full hover:bg-[var(--gold)]/10 transition-all duration-300 hover:scale-105 flex-1"
               >
-                <Heart className="w-5 h-5" />
-                <span className="whitespace-nowrap">Join as Volunteer</span>
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span className="whitespace-nowrap text-xs sm:text-base">Volunteer</span>
               </Link>
             </div>
           </div>
