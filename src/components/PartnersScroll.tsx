@@ -63,7 +63,7 @@ export default function PartnersScroll() {
             key={`${partner.name}-${index}`}
             className="flex-shrink-0 inline-flex items-center justify-center mx-4 sm:mx-6 overflow-hidden bg-white rounded-xl shadow-md border border-[var(--gold)]/20 w-[160px] sm:w-[200px] h-[160px] sm:h-[200px] transition-all duration-300 hover:shadow-lg hover:border-[var(--gold)]/40"
           >
-            <div className="relative w-full h-full">
+            <div className={`relative w-full h-full ${partner.name === 'Trace TV' ? 'p-4 sm:p-6' : ''}`}>
               <Image
                 src={partner.logo}
                 alt={partner.name}
