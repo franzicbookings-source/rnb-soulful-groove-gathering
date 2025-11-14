@@ -62,11 +62,49 @@ const latestNews = [
   }
 ];
 
+// Custom hook for counting animation
+const useCountUp = (end: number, start: number = 0, duration: number = 2000) => {
+  const [count, setCount] = useState(start);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (hasAnimated) return;
+    
+    const startTime = Date.now();
+    const range = end - start;
+    
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(start + range * easeOutQuart);
+      
+      setCount(currentCount);
+      
+      if (progress === 1) {
+        clearInterval(timer);
+        setHasAnimated(true);
+      }
+    }, 16); // ~60fps
+    
+    return () => clearInterval(timer);
+  }, [end, start, duration, hasAnimated]);
+
+  return count;
+};
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
+
+  // Counting animations for stats
+  const artistsCount = useCountUp(15, 0, 2000);
+  const hoursCount = useCountUp(8, 1, 2000);
+  const volunteersCount = useCountUp(50, 5, 2000);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -368,19 +406,19 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Event Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-3xl mx-auto">
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">15+</div>
-                <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Top Artists</div>
+            {/* Event Highlights Grid - Mobile Responsive */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-3xl mx-auto">
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
+                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{artistsCount}+</div>
+                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Top Artists</div>
               </div>
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">8 Hours</div>
-                <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Non-Stop Music</div>
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
+                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{hoursCount} Hours</div>
+                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Non-Stop Music</div>
               </div>
-              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-5 text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-[var(--gold)] mb-2">50+</div>
-                <div className="text-xs sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide">Volunteers</div>
+              <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
+                <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{volunteersCount}+</div>
+                <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Volunteers</div>
               </div>
             </div>
 
