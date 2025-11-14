@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Ntombii Communications (Pty) Ltd" }],
   creator: "Ntombii Communications (Pty) Ltd",
   publisher: "RnB & Soulful Groove Gathering",
-  metadataBase: new URL('https://yourdomain.com'),
+  metadataBase: new URL('https://rnbsoulfulgroovegathering.co.za'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_ZA',
-    url: 'https://yourdomain.com',
+    url: 'https://rnbsoulfulgroovegathering.co.za',
     siteName: 'RnB & Soulful Groove Gathering',
     title: 'RnB & Soulful Groove Gathering 2025 | Angels of the Promise Land',
     description: 'Join us on December 14, 2025 for the ultimate RnB & Soulful music experience. Featuring Mlindo The Vocalist and top DJs.',
