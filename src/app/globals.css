@@ -181,8 +181,8 @@
   html {
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
-    /* Fix for mobile viewport height */
-    height: -webkit-fill-available;
+    height: 100vh;
+    height: var(--vh, 100vh);
   }
   
   body {
@@ -196,9 +196,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    /* Fix for mobile viewport height */
     min-height: 100vh;
-    min-height: -webkit-fill-available;
+    min-height: var(--vh, 100vh);
   }
   
   h1, h2, h3, h4, h5, h6 {

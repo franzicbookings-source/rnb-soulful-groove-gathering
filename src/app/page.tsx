@@ -106,6 +106,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -114,6 +115,24 @@ export default function Home() {
   const artistsCount = useCountUp(15, 0, 2000, shouldAnimate);
   const hoursCount = useCountUp(8, 1, 2000, shouldAnimate);
   const volunteersCount = useCountUp(50, 5, 2000, shouldAnimate);
+
+  // Set viewport height for mobile browsers (Samsung Internet, Chrome mobile, etc.)
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight;
+      setViewportHeight(vh);
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+    
+    return () => {
+      window.removeEventListener('resize', setVH);
+      window.removeEventListener('orientationchange', setVH);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -239,7 +258,14 @@ export default function Home() {
       <NavigationHeader />
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '-webkit-fill-available' }}>
+      <section 
+        className="relative flex items-center justify-center overflow-hidden bg-black" 
+        style={{ 
+          height: viewportHeight ? `${viewportHeight}px` : '100vh',
+          minHeight: viewportHeight ? `${viewportHeight}px` : '100vh',
+          maxHeight: viewportHeight ? `${viewportHeight}px` : '100vh'
+        }}
+      >
         {/* Background Video */}
         <div className="absolute inset-0">
           {shouldLoadVideo && (
