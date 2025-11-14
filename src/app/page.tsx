@@ -104,9 +104,7 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000, sho
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
-  const [posterLoaded, setPosterLoaded] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -118,7 +116,7 @@ export default function Home() {
   const hoursCount = useCountUp(8, 1, 2000, shouldAnimate);
   const volunteersCount = useCountUp(50, 5, 2000, shouldAnimate);
 
-  // Set viewport height for mobile browsers (Samsung Internet, Chrome mobile, etc.)
+  // Set viewport height for mobile browsers
   useEffect(() => {
     const setVH = () => {
       const vh = window.innerHeight;
@@ -142,42 +140,8 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Only start loading video AFTER poster is fully loaded
+  // Video autoplay handling - starts immediately on mount
   useEffect(() => {
-    if (posterLoaded) {
-      const timer = setTimeout(() => {
-        setShouldLoadVideo(true);
-      }, 500); // Give poster a moment to render
-      return () => clearTimeout(timer);
-    }
-  }, [posterLoaded]);
-
-  // IntersectionObserver for counting animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !shouldAnimate) {
-            setShouldAnimate(true);
-          }
-        });
-      },
-      { threshold: 0.3 } // Trigger when 30% of the section is visible
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
-      }
-    };
-  }, [shouldAnimate]);
-
-  useEffect(() => {
-    if (!shouldLoadVideo) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -197,10 +161,11 @@ export default function Home() {
         await video.play();
         setVideoPlaying(true);
       } catch (err) {
-        // Autoplay blocked - user interaction required
+        // Autoplay blocked - will retry on user interaction
       }
     };
 
+    // Multiple play attempts for aggressive autoplay
     const playAttempts = async () => {
       await attemptPlay();
       setTimeout(attemptPlay, 100);
@@ -256,7 +221,31 @@ export default function Home() {
       document.removeEventListener('click', handleFirstInteraction);
       observer.disconnect();
     };
-  }, [shouldLoadVideo]);
+  }, []);
+
+  // IntersectionObserver for counting animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !shouldAnimate) {
+            setShouldAnimate(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [shouldAnimate]);
 
   const handleArtistClick = (artistId: number) => {
     router.push(`/lineup?artist=${artistId}`);
@@ -268,7 +257,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section 
-        className="relative flex items-center justify-center overflow-hidden" 
+        className="hero-section relative flex items-center justify-center overflow-hidden" 
         style={{ 
           height: viewportHeight ? `${viewportHeight}px` : '100vh',
           minHeight: viewportHeight ? `${viewportHeight}px` : '100vh',
@@ -276,57 +265,32 @@ export default function Home() {
           background: 'linear-gradient(135deg, #2D1B3D 0%, #1A1A3E 50%, #0F0F2E 100%)'
         }}
       >
-        {/* Background Video/Image */}
-        <div className="absolute inset-0">
-          {/* Poster/Fallback image - always visible until video plays */}
-          <div 
-            className="absolute inset-0 w-full h-full transition-opacity duration-1000"
-            style={{ 
-              opacity: (posterLoaded && videoPlaying) ? 0 : 1,
-              pointerEvents: 'none'
-            }}
-          >
-            <Image
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png"
-              alt="Hero background"
-              fill
-              priority
-              quality={90}
-              className="object-cover"
-              sizes="100vw"
-              onLoad={() => setPosterLoaded(true)}
-            />
-          </div>
-
-          {/* Video - fades in when playing */}
-          {shouldLoadVideo && (
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              controls={false}
-              disablePictureInPicture
-              disableRemotePlayback
-              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
-              style={{ 
-                pointerEvents: 'none', 
-                objectFit: 'cover',
-                opacity: videoPlaying ? 1 : 0
-              }}
-            >
-              <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763151604813.mp4" type="video/mp4" />
-            </video>
-          )}
-        </div>
+        {/* Background Video - loads immediately with poster fallback */}
+        <video
+          ref={videoRef}
+          className="hero-bg-video absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          style={{ 
+            pointerEvents: 'none',
+            objectFit: 'cover'
+          }}
+        >
+          <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763151604813.mp4" type="video/mp4" />
+        </video>
         
-        {/* Gradient Overlay - Separate layer */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" />
+        {/* Gradient Overlay */}
+        <div className="hero-overlay absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" style={{ zIndex: 1 }} />
 
-        {/* Hero Content - Show immediately */}
-        <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full">
+        {/* Hero Content */}
+        <div className="relative px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full text-center" style={{ zIndex: 2 }}>
           <div className="mt-6 sm:mt-8">
             <CountdownTimer />
           </div>
