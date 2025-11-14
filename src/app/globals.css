@@ -1,3 +1,11 @@
+/* Updated: 2025-11-14T09:46:40.763Z */
+/* Updated: 2025-11-14T09:05:53.226Z */
+/* Updated: 2025-11-14T08:49:28.524Z */
+/* Updated: 2025-11-14T08:31:20.783Z */
+/* Updated: 2025-11-14T02:33:17.957Z */
+/* Updated: 2025-11-14T01:22:22.216Z */
+/* Updated: 2025-11-14T01:03:40.217Z */
+/* Updated: 2025-11-14T01:01:35.285Z */
 /* Updated: 2025-11-14T00:05:50.330Z */
 /* Updated: 2025-11-13T23:33:16.769Z */
 /* Updated: 2025-11-13T19:19:59.340Z */
@@ -286,7 +294,7 @@
   }
   
   .animate-scroll {
-    animation: scroll 10s linear infinite;
+    animation: scroll 13s linear infinite;
   }
   
   @media (min-width: 640px) {
