@@ -65,6 +65,16 @@ const galleryJune2025 = [
   { id: 59, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0692-1763111187297.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - DJ mixing live at the event' },
   { id: 60, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0691-1763111186849.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Artist performing at the gathering' },
   { id: 61, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0690-1763111187297.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Stylish guest at the event entrance' },
+  { id: 62, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0688-1763111256514.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Friends posing under USPHE NO BOXER arch' },
+  { id: 63, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0687-1763111258449.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Stylish guest walking the red carpet' },
+  { id: 64, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0686-1763111265111.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Group of friends on red carpet with white florals' },
+  { id: 65, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0685-1763111264752.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Night event moment with friends' },
+  { id: 66, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0684-1763111265549.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Excited crowd celebrating with green lights' },
+  { id: 67, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0683-1763111265847.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest in black jacket on red carpet' },
+  { id: 68, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0682-1763111265546.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Friends enjoying the outdoor festival' },
+  { id: 69, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0681-1763111266627.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Festival attendee at outdoor venue' },
+  { id: 70, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0680-1763111265942.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Nighttime festival moment under metal structure' },
+  { id: 71, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0679-1763111266076.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Friends at outdoor daytime gathering' },
 ];
 
 const galleryCommunity = [
