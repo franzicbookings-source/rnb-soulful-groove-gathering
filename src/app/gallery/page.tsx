@@ -44,6 +44,19 @@ const galleryDec2024 = [
   { id: 41, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4457bac7-c0ca-4df5-b654-2eee920648e3-1763083521318.jpeg?width=8000&height=8000&resize=contain', alt: 'December 2024 - Crowd enjoying the festival atmosphere' },
 ];
 
+const galleryJune2025 = [
+  { id: 42, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/9f0f12b7-7a96-4105-93bb-ec350e7926c3-1763083710087.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guests on the red carpet with white floral arrangements' },
+  { id: 43, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/c951d170-a59c-46cf-8ee0-f33ee9117132-1763083709522.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Live performance with engaged crowd' },
+  { id: 44, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/b19a7155-ada8-4d7e-87dc-0472aa66b93b-1763083710212.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Group photo at outdoor event' },
+  { id: 45, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/6a6197c8-5aef-4023-b91a-79fa2903ecc8-1763083709830.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Couple enjoying refreshments at the event' },
+  { id: 46, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/23f4489b-2d81-4325-b50b-4cb69bfd5d88-1763083709189.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest in leather jacket enjoying the festival' },
+  { id: 47, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/47fdf427-3afa-4859-a79e-178fd72574b6-1763083711127.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - RnB & Soulful Groove Gathering entrance with butterfly arch' },
+  { id: 48, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/4c0de4f2-a586-4516-8b44-4773c88b8c14-1763083710652.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Friends relaxing in lounge area' },
+  { id: 49, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad405b4e-6b2b-4518-8a74-1abb07242db3-1763083711224.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Spectacular fireworks display at night' },
+  { id: 50, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/a7e9e4fd-9bca-438c-bc43-3abb9c34622f-1763083710741.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Excited festival crowd celebrating' },
+  { id: 51, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1e66d146-5330-4907-b5d1-0c45dcc47bf5-1763083710193.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Stylish attendees at outdoor venue' },
+];
+
 const galleryCommunity = [
   { id: 7, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554077897.png', alt: 'Giving Back - Volunteer helping students with shoes' },
   { id: 8, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762554098717.png', alt: 'Giving Back - Students receiving new school shoes' },
@@ -176,7 +189,7 @@ export default function GalleryPage() {
               <GalleryGrid images={galleryDec2024} />
             </TabsContent>
             <TabsContent value="june2025">
-              <ComingSoonMessage year="June 2025" />
+              <GalleryGrid images={galleryJune2025} />
             </TabsContent>
             <TabsContent value="dec2025">
               <ComingSoonMessage year="December 2025" />
