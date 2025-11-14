@@ -372,10 +372,10 @@ export default function Home() {
             <div className="text-center mb-8 sm:mb-10">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 <span className="block text-[var(--gold)] glow-gold">Secure Your Spot</span>
-                <span className="block mt-2">Before It's Too Late</span>
+                <span className="block mt-2">Angels of the Promise Land</span>
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-[var(--cream)]/80 max-w-3xl mx-auto px-4">
-                Join us for an unforgettable evening of RnB & soulful vibes under the stars. 
+                Experience an unforgettable celebration of RnB & soulful vibes. 
                 <span className="block mt-2 text-[var(--gold)] font-semibold">December 14, 2025 • Majuba College Stadium</span>
               </p>
             </div>
