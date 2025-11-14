@@ -47,6 +47,10 @@ export default function PartnersScroll() {
     {
       name: 'Yenza',
       logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763110555363.png?width=8000&height=8000&resize=contain'
+    },
+    {
+      name: 'Trace TV',
+      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763112666772.png?width=8000&height=8000&resize=contain'
     }
   ];
 
