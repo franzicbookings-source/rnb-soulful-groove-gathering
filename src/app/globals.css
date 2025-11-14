@@ -1,3 +1,10 @@
+/* Updated: 2025-11-14T17:47:08.595Z */
+/* Updated: 2025-11-14T16:18:16.831Z */
+/* Updated: 2025-11-14T14:35:22.367Z */
+/* Updated: 2025-11-14T14:20:03.397Z */
+/* Updated: 2025-11-14T13:49:40.315Z */
+/* Updated: 2025-11-14T12:28:34.182Z */
+/* Updated: 2025-11-14T11:59:54.847Z */
 /* Updated: 2025-11-14T09:46:40.763Z */
 /* Updated: 2025-11-14T09:05:53.226Z */
 /* Updated: 2025-11-14T08:49:28.524Z */
@@ -174,6 +181,8 @@
   html {
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
+    /* Fix for mobile viewport height */
+    height: -webkit-fill-available;
   }
   
   body {
@@ -187,6 +196,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    /* Fix for mobile viewport height */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
   }
   
   h1, h2, h3, h4, h5, h6 {

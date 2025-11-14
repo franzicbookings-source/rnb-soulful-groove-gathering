@@ -239,7 +239,7 @@ export default function Home() {
       <NavigationHeader />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '-webkit-fill-available' }}>
         {/* Background Video */}
         <div className="absolute inset-0">
           {shouldLoadVideo && (
@@ -255,7 +255,7 @@ export default function Home() {
               disableRemotePlayback
               poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png?width=1920&height=1080"
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ pointerEvents: 'none', objectFit: 'cover' }}
+              style={{ pointerEvents: 'none', objectFit: 'cover', height: '100%', width: '100%' }}
             >
               <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763112370070.mp4?v=2" type="video/mp4" />
             </video>
@@ -270,6 +270,7 @@ export default function Home() {
                 priority
                 quality={90}
                 className="object-cover"
+                style={{ height: '100%', width: '100%' }}
               />
             </div>
           )}
@@ -279,8 +280,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" />
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full">
-          <div className="mt-6 sm:mt-8 pt-10 sm:pt-0">
+        <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full">
+          <div className="mt-6 sm:mt-8">
             <CountdownTimer />
           </div>
 
