@@ -106,6 +106,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [posterLoaded, setPosterLoaded] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -141,12 +142,15 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Only start loading video AFTER poster is fully loaded
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldLoadVideo(true);
-    }, 100); // Load video immediately
-    return () => clearTimeout(timer);
-  }, []);
+    if (posterLoaded) {
+      const timer = setTimeout(() => {
+        setShouldLoadVideo(true);
+      }, 500); // Give poster a moment to render
+      return () => clearTimeout(timer);
+    }
+  }, [posterLoaded]);
 
   // IntersectionObserver for counting animation
   useEffect(() => {
@@ -277,7 +281,7 @@ export default function Home() {
           <div 
             className="absolute inset-0 w-full h-full transition-opacity duration-1000"
             style={{ 
-              opacity: videoPlaying ? 0 : 1,
+              opacity: (posterLoaded && videoPlaying) ? 0 : 1,
               pointerEvents: 'none'
             }}
           >
@@ -289,6 +293,7 @@ export default function Home() {
               quality={90}
               className="object-cover"
               sizes="100vw"
+              onLoad={() => setPosterLoaded(true)}
             />
           </div>
 
@@ -319,7 +324,7 @@ export default function Home() {
         {/* Gradient Overlay - Separate layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" />
 
-        {/* Hero Content */}
+        {/* Hero Content - Show immediately, no waiting */}
         <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full">
           <div className="mt-6 sm:mt-8">
             <CountdownTimer />
