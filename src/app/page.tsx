@@ -105,6 +105,7 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000, sho
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -143,7 +144,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoadVideo(true);
-    }, 500);
+    }, 100); // Load video immediately
     return () => clearTimeout(timer);
   }, []);
 
@@ -190,6 +191,7 @@ export default function Home() {
         video.removeAttribute('controls');
         video.controls = false;
         await video.play();
+        setVideoPlaying(true);
       } catch (err) {
         // Autoplay blocked - user interaction required
       }
@@ -207,6 +209,7 @@ export default function Home() {
     const handleLoadedMetadata = () => attemptPlay();
     const handleCanPlay = () => attemptPlay();
     const handleFirstInteraction = () => attemptPlay();
+    const handlePlaying = () => setVideoPlaying(true);
     const handlePause = () => {
       if (video.readyState >= 2) {
         video.play().catch(() => {});
@@ -216,6 +219,7 @@ export default function Home() {
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', attemptPlay);
+    video.addEventListener('playing', handlePlaying);
     video.addEventListener('pause', handlePause);
     
     document.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true });
@@ -240,6 +244,7 @@ export default function Home() {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', attemptPlay);
+      video.removeEventListener('playing', handlePlaying);
       video.removeEventListener('pause', handlePause);
       document.removeEventListener('touchstart', handleFirstInteraction);
       document.removeEventListener('touchmove', handleFirstInteraction);
@@ -266,8 +271,28 @@ export default function Home() {
           maxHeight: viewportHeight ? `${viewportHeight}px` : '100vh'
         }}
       >
-        {/* Background Video */}
+        {/* Background Video/Image */}
         <div className="absolute inset-0">
+          {/* Poster/Fallback image - always visible until video plays */}
+          <div 
+            className="absolute inset-0 w-full h-full transition-opacity duration-1000"
+            style={{ 
+              opacity: videoPlaying ? 0 : 1,
+              pointerEvents: 'none'
+            }}
+          >
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png"
+              alt="Hero background"
+              fill
+              priority
+              quality={90}
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+
+          {/* Video - fades in when playing */}
           {shouldLoadVideo && (
             <video
               ref={videoRef}
@@ -279,26 +304,15 @@ export default function Home() {
               controls={false}
               disablePictureInPicture
               disableRemotePlayback
-              poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png?width=1920&height=1080"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ pointerEvents: 'none', objectFit: 'cover', height: '100%', width: '100%' }}
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+              style={{ 
+                pointerEvents: 'none', 
+                objectFit: 'cover',
+                opacity: videoPlaying ? 1 : 0
+              }}
             >
               <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763112370070.mp4?v=2" type="video/mp4" />
             </video>
-          )}
-          {/* Fallback image when video is not loaded yet */}
-          {!shouldLoadVideo && (
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png"
-                alt="Hero background"
-                fill
-                priority
-                quality={90}
-                className="object-cover"
-                style={{ height: '100%', width: '100%' }}
-              />
-            </div>
           )}
         </div>
         
