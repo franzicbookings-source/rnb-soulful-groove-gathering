@@ -63,12 +63,12 @@ const latestNews = [
 ];
 
 // Custom hook for counting animation
-const useCountUp = (end: number, start: number = 0, duration: number = 2000) => {
+const useCountUp = (end: number, start: number = 0, duration: number = 2000, shouldStart: boolean = false) => {
   const [count, setCount] = useState(start);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (hasAnimated) return;
+    if (hasAnimated || !shouldStart) return;
     
     const startTime = Date.now();
     const range = end - start;
@@ -90,7 +90,7 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000) => 
     }, 16); // ~60fps
     
     return () => clearInterval(timer);
-  }, [end, start, duration, hasAnimated]);
+  }, [end, start, duration, hasAnimated, shouldStart]);
 
   return count;
 };
@@ -98,13 +98,15 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000) => 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Counting animations for stats
-  const artistsCount = useCountUp(15, 0, 2000);
-  const hoursCount = useCountUp(8, 1, 2000);
-  const volunteersCount = useCountUp(50, 5, 2000);
+  // Counting animations for stats - only start when shouldAnimate is true
+  const artistsCount = useCountUp(15, 0, 2000, shouldAnimate);
+  const hoursCount = useCountUp(8, 1, 2000, shouldAnimate);
+  const volunteersCount = useCountUp(50, 5, 2000, shouldAnimate);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -118,6 +120,30 @@ export default function Home() {
     }, 500);
     return () => clearTimeout(timer);
   }, []);
+
+  // IntersectionObserver for counting animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !shouldAnimate) {
+            setShouldAnimate(true);
+          }
+        });
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is visible
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [shouldAnimate]);
 
   useEffect(() => {
     if (!shouldLoadVideo) return;
@@ -407,7 +433,7 @@ export default function Home() {
             </div>
 
             {/* Event Highlights Grid - Mobile Responsive */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-3xl mx-auto">
+            <div ref={statsRef} className="grid grid-cols-3 gap-3 sm:gap-4 mb-8 max-w-3xl mx-auto">
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-5 text-center">
                 <div className="text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{artistsCount}+</div>
                 <div className="text-[10px] sm:text-sm text-[var(--cream)]/70 uppercase tracking-wide leading-tight">Top Artists</div>
