@@ -20,7 +20,7 @@ export function JsonLd() {
     organizer: {
       '@type': 'Organization',
       name: 'Ntombii Communications (Pty) Ltd',
-      url: 'https://yourdomain.com',
+      url: 'https://rnbsoulfulgroovegathering.co.za',
     },
     performer: [
       {
