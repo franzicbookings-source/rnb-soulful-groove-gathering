@@ -241,7 +241,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0">
           {shouldLoadVideo && (
             <video
               ref={videoRef}
@@ -249,19 +249,34 @@ export default function Home() {
               loop
               muted
               playsInline
-              preload="none"
+              preload="auto"
               controls={false}
               disablePictureInPicture
               disableRemotePlayback
-              poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              className="absolute inset-0 w-full h-full object-cover [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-panel]:hidden [&::-webkit-media-controls-play-button]:hidden [&::-webkit-media-controls-start-playback-button]:hidden"
+              poster="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png?width=1920&height=1080"
+              className="absolute inset-0 w-full h-full object-cover"
               style={{ pointerEvents: 'none', objectFit: 'cover' }}
             >
               <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763112370070.mp4?v=2" type="video/mp4" />
             </video>
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+          {/* Fallback image when video is not loaded yet */}
+          {!shouldLoadVideo && (
+            <div className="absolute inset-0 w-full h-full">
+              <Image
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png"
+                alt="Hero background"
+                fill
+                priority
+                quality={90}
+                className="object-cover"
+              />
+            </div>
+          )}
         </div>
+        
+        {/* Gradient Overlay - Separate layer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" />
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full">
