@@ -39,6 +39,14 @@ export default function PartnersScroll() {
     {
       name: 'Umthanti Tents | Covers | Canvas',
       logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image0-1-1762769910411.jpeg'
+    },
+    {
+      name: 'KwaZulu-Natal Department of Sport and Recreation',
+      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763110541385.png?width=8000&height=8000&resize=contain'
+    },
+    {
+      name: 'Yenza',
+      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763110555363.png?width=8000&height=8000&resize=contain'
     }
   ];
 
