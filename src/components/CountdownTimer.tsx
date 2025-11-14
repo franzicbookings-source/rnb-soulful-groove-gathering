@@ -42,7 +42,7 @@ export default function CountdownTimer() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[var(--gold)] glow-gold leading-tight">
           <span className="font-black">14 DECEMBER</span> 2025
         </h1>
-        <p className="text-xl sm:text-2xl md:text-3xl text-[var(--cream)]/95 font-bold tracking-wide">
+        <p className="text-sm sm:text-2xl md:text-3xl text-[var(--cream)]/95 font-bold tracking-wide whitespace-nowrap">
           MAJUBA COLLEGE STADIUM, NEWCASTLE
         </p>
       </div>
