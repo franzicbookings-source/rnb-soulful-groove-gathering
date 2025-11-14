@@ -85,6 +85,16 @@ const galleryJune2025 = [
   { id: 79, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0671-1763111376709.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guests in leather outfits at event' },
   { id: 80, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0670-1763111376845.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Two guests under USPHE NO BOXER stage arch' },
   { id: 81, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0669-1763111376895.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Fashionable guests at green carpet event entrance' },
+  { id: 82, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0650-1763111702584.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Fashion show on red carpet with white florals' },
+  { id: 83, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0651-1763111708705.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Two guests walking red carpet at outdoor venue' },
+  { id: 84, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0653-1763111694873.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Elegant guest on red carpet with leather jacket' },
+  { id: 85, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0652-1763111707578.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Group walking red carpet at outdoor venue' },
+  { id: 86, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0655-1763111695925.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Two women posing at outdoor venue' },
+  { id: 87, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0656-1763111695962.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest in black jacket on red carpet' },
+  { id: 88, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0654-1763111703708.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Two fashionable guests on red carpet' },
+  { id: 89, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0657-1763111708812.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Three stylish guests on red carpet' },
+  { id: 90, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0658-1763111692571.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest in fur-trimmed jacket on red carpet' },
+  { id: 91, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0659-1763111709525.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest in black puffer jacket on red carpet' },
 ];
 
 const galleryCommunity = [
