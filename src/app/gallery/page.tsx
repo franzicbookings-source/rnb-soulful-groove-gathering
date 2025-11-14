@@ -55,6 +55,16 @@ const galleryJune2025 = [
   { id: 49, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/ad405b4e-6b2b-4518-8a74-1abb07242db3-1763083711224.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Spectacular fireworks display at night' },
   { id: 50, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/a7e9e4fd-9bca-438c-bc43-3abb9c34622f-1763083710741.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Excited festival crowd celebrating' },
   { id: 51, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/1e66d146-5330-4907-b5d1-0c45dcc47bf5-1763083710193.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Stylish attendees at outdoor venue' },
+  { id: 52, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0699-1763111181104.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Friends celebrating together at the event' },
+  { id: 53, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0698-1763111181524.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Guest enjoying the moment at the gathering' },
+  { id: 54, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0697-1763111184922.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Attendee relaxing in the VIP lounge area' },
+  { id: 55, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0696-1763111186785.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Joyful moment captured at the festival' },
+  { id: 56, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0695-1763111187258.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Host addressing the crowd' },
+  { id: 57, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0694-1763111186568.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Live saxophone performance' },
+  { id: 58, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0693-1763111187352.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Bassist performing on stage' },
+  { id: 59, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0692-1763111187297.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - DJ mixing live at the event' },
+  { id: 60, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0691-1763111186849.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Artist performing at the gathering' },
+  { id: 61, url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/IMG_0690-1763111187297.jpeg?width=8000&height=8000&resize=contain', alt: 'June 2025 - Stylish guest at the event entrance' },
 ];
 
 const galleryCommunity = [
