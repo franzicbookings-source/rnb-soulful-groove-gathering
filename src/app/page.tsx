@@ -268,11 +268,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section 
-        className="relative flex items-center justify-center overflow-hidden bg-black" 
+        className="relative flex items-center justify-center overflow-hidden" 
         style={{ 
           height: viewportHeight ? `${viewportHeight}px` : '100vh',
           minHeight: viewportHeight ? `${viewportHeight}px` : '100vh',
-          maxHeight: viewportHeight ? `${viewportHeight}px` : '100vh'
+          maxHeight: viewportHeight ? `${viewportHeight}px` : '100vh',
+          background: 'linear-gradient(135deg, #2D1B3D 0%, #1A1A3E 50%, #0F0F2E 100%)'
         }}
       >
         {/* Background Video/Image */}
@@ -324,7 +325,7 @@ export default function Home() {
         {/* Gradient Overlay - Separate layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" />
 
-        {/* Hero Content - Show immediately, no waiting */}
+        {/* Hero Content - Show immediately */}
         <div className="relative z-10 text-center px-4 sm:px-6 py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full">
           <div className="mt-6 sm:mt-8">
             <CountdownTimer />
