@@ -1,3 +1,4 @@
+/* Updated: 2025-11-15T06:41:48.311Z */
 /* Updated: 2025-11-15T06:16:30.336Z */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
 
@@ -294,13 +295,13 @@
   /* Faster scroll on mobile for better performance */
   @media (max-width: 480px) {
     .animate-scroll {
-      animation: scroll 20s linear infinite;
+      animation: scroll 10s linear infinite;
     }
   }
   
   @media (min-width: 481px) and (max-width: 768px) {
     .animate-scroll {
-      animation: scroll 22s linear infinite;
+      animation: scroll 11s linear infinite;
     }
   }
   
