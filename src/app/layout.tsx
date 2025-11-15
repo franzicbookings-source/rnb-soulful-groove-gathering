@@ -65,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="tQ_Z59uaA6O8qNp5PbyR2w8xT8lIy2Bq0muNV8iOdqA" />
         <JsonLd />
       </head>
       <body className="antialiased">
