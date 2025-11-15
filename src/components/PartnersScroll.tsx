@@ -4,6 +4,16 @@ import Image from 'next/image';
 
 export default function PartnersScroll() {
   const partners = [
+    // Liquor Brands - Grouped Together
+    {
+      name: 'Ice Tropez',
+      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762504496495.png'
+    },
+    {
+      name: 'Castle Lite',
+      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762770913249.png?width=8000&height=8000&resize=contain'
+    },
+    // Other Partners
     {
       name: 'Vodacom',
       logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762771014413.png?width=8000&height=8000&resize=contain'
@@ -15,14 +25,6 @@ export default function PartnersScroll() {
     {
       name: 'Niyatee Foundation',
       logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762504438064.png'
-    },
-    {
-      name: 'Ice Tropez',
-      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762504496495.png'
-    },
-    {
-      name: 'Castle Lite',
-      logo: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762770913249.png?width=8000&height=8000&resize=contain'
     },
     {
       name: 'KMRS - Kunene Makopo Risk Solutions',

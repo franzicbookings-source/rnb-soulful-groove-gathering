@@ -296,21 +296,21 @@ export default function Home() {
           </div>
 
           {/* Buttons */}
-          <div className="mt-4 xs:mt-6 sm:mt-8 flex flex-col xs:flex-row gap-3 xs:gap-4 sm:gap-6 items-center justify-center px-3 xs:px-4 w-full max-w-md xs:max-w-none">
+          <div className="mt-4 xs:mt-6 sm:mt-8 flex flex-row gap-3 xs:gap-4 sm:gap-6 items-center justify-center px-3 xs:px-4 w-full max-w-2xl mx-auto">
             <a
               href="https://computicket.com/event/rnb-soulful-groove-gathering-summer-edition-/f6574621-5e8d-4a8a-aba9-8fa8bb6651aM"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-2 sm:gap-3 animate-glow w-full xs:w-auto xs:flex-1 sm:flex-none justify-center text-xs xs:text-sm sm:text-base font-bold px-6 xs:px-8 sm:px-10"
+              className="btn-primary inline-flex items-center gap-2 sm:gap-3 animate-glow flex-1 justify-center text-xs xs:text-sm sm:text-base font-bold px-4 xs:px-6 sm:px-10"
             >
-              <Ticket size={16} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
-              <span>GET TICKETS</span>
+              <Ticket size={16} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              <span className="whitespace-nowrap">GET TICKETS</span>
             </a>
             <a
               href="#lineup"
-              className="btn-secondary inline-flex items-center justify-center gap-2 w-full xs:w-auto xs:flex-1 sm:flex-none text-xs xs:text-sm sm:text-base px-6 xs:px-8 sm:px-10"
+              className="btn-secondary inline-flex items-center justify-center gap-2 flex-1 text-xs xs:text-sm sm:text-base px-4 xs:px-6 sm:px-10"
             >
-              <span>View Line-Up</span>
+              <span className="whitespace-nowrap">View Line-Up</span>
             </a>
           </div>
         </div>
