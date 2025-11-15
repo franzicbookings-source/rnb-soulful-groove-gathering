@@ -67,23 +67,23 @@ export default function Gallery() {
     }, [emblaApi, onSelect]);
 
     return (
-      <div className="relative px-4 sm:px-8 md:px-12">
+      <div className="relative px-2 xs:px-4 sm:px-8 md:px-12">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-4 sm:gap-6 touch-pan-y touch-manipulation">
+          <div className="flex gap-3 xs:gap-4 sm:gap-6 touch-pan-y touch-manipulation">
             {images.map((image, index) => (
               <div
                 key={image.id}
-                className="flex-[0_0_100%] sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
+                className="flex-[0_0_100%] xs:flex-[0_0_calc(100%-12px)] sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] min-w-0"
               >
                 <div
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer group card-elevated border border-[var(--gold)]/20 bg-[var(--charcoal)]/20"
+                  className="relative aspect-[4/3] overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer group card-elevated border border-[var(--gold)]/20 bg-[var(--charcoal)]/20 touch-manipulation"
                   onClick={() => setSelectedImage(image.url)}
                 >
                   <Image
                     src={image.url}
                     alt={image.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 320px) 100vw, (max-width: 375px) 100vw, (max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={85}
                     priority={index < 2}
                     className="object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
@@ -99,29 +99,29 @@ export default function Gallery() {
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[var(--gold)] text-[var(--midnight-blue)] items-center justify-center shadow-xl hover:bg-[var(--gold-light)] transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10 font-bold"
+          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--gold)] text-[var(--midnight-blue)] items-center justify-center shadow-xl hover:bg-[var(--gold-light)] transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10 font-bold"
           aria-label="Previous"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
         </button>
         <button
           onClick={scrollNext}
           disabled={!canScrollNext}
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[var(--gold)] text-[var(--midnight-blue)] items-center justify-center shadow-xl hover:bg-[var(--gold-light)] transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10 font-bold"
+          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--gold)] text-[var(--midnight-blue)] items-center justify-center shadow-xl hover:bg-[var(--gold-light)] transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10 font-bold"
           aria-label="Next"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} className="sm:w-6 sm:h-6" />
         </button>
 
         {/* Pagination Dots for Mobile */}
-        <div className="flex sm:hidden justify-center gap-2 mt-6">
+        <div className="flex sm:hidden justify-center gap-1.5 xs:gap-2 mt-4 xs:mt-6">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => scrollTo(index)}
-              className={`w-2 h-2 rounded-full transition-all touch-manipulation ${
+              className={`w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full transition-all touch-manipulation ${
                 selectedIndex === index 
-                  ? 'bg-[var(--gold)] w-6' 
+                  ? 'bg-[var(--gold)] w-4 xs:w-6' 
                   : 'bg-[var(--gold)]/30'
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -135,16 +135,16 @@ export default function Gallery() {
   return (
     <>
       <Tabs defaultValue="2025" className="w-full">
-        <TabsList className="mb-10 bg-white/90 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-full flex justify-center p-1.5 gap-2 w-fit mx-auto shadow-lg">
+        <TabsList className="mb-6 xs:mb-8 sm:mb-10 bg-white/90 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-full flex justify-center p-1 xs:p-1.5 gap-1 xs:gap-2 w-fit mx-auto shadow-lg">
           <TabsTrigger 
             value="2025" 
-            className="data-[state=active]:bg-[var(--gold)] data-[state=active]:text-[var(--midnight-blue)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[var(--charcoal)] data-[state=inactive]:hover:text-[var(--gold)] px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-bold transition-all rounded-full touch-manipulation"
+            className="data-[state=active]:bg-[var(--gold)] data-[state=active]:text-[var(--midnight-blue)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[var(--charcoal)] data-[state=inactive]:hover:text-[var(--gold)] px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base font-bold transition-all rounded-full touch-manipulation"
           >
             2025 Preview
           </TabsTrigger>
           <TabsTrigger 
             value="2024" 
-            className="data-[state=active]:bg-[var(--gold)] data-[state=active]:text-[var(--midnight-blue)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[var(--charcoal)] data-[state=inactive]:hover:text-[var(--gold)] px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-bold transition-all rounded-full touch-manipulation"
+            className="data-[state=active]:bg-[var(--gold)] data-[state=active]:text-[var(--midnight-blue)] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[var(--charcoal)] data-[state=inactive]:hover:text-[var(--gold)] px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base font-bold transition-all rounded-full touch-manipulation"
           >
             2024 Highlights
           </TabsTrigger>
@@ -159,12 +159,12 @@ export default function Gallery() {
 
       {/* Lightbox Dialog */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-[95vw] sm:max-w-4xl bg-[var(--midnight-blue)]/98 border-2 border-[var(--gold)] p-0 rounded-2xl">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] xs:max-w-[90vw] xs:max-h-[90vh] sm:max-w-4xl bg-[var(--midnight-blue)]/98 border-2 border-[var(--gold)] p-0 rounded-xl sm:rounded-2xl">
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute right-2 top-2 sm:right-4 sm:top-4 z-50 rounded-full bg-[var(--gold)] p-2.5 text-[var(--midnight-blue)] hover:bg-[var(--gold-light)] transition-colors shadow-lg"
+            className="absolute right-2 top-2 xs:right-3 xs:top-3 sm:right-4 sm:top-4 z-50 rounded-full bg-[var(--gold)] p-2 xs:p-2.5 text-[var(--midnight-blue)] hover:bg-[var(--gold-light)] active:bg-[var(--gold-light)] transition-colors shadow-lg touch-manipulation"
           >
-            <X size={24} />
+            <X size={20} className="xs:w-6 xs:h-6" />
           </button>
           {selectedImage && (
             <div className="relative w-full aspect-[4/3]">
@@ -174,7 +174,7 @@ export default function Gallery() {
                 fill
                 sizes="95vw"
                 quality={90}
-                className="object-contain rounded-2xl"
+                className="object-contain rounded-xl sm:rounded-2xl"
               />
             </div>
           )}

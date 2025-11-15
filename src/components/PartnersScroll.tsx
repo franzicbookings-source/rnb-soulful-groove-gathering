@@ -55,21 +55,28 @@ export default function PartnersScroll() {
   ];
 
   return (
-    <div className="overflow-hidden w-full py-4 sm:py-6">
+    <div className="overflow-hidden w-full py-4 sm:py-6 md:py-8">
       <div className="flex animate-scroll" style={{ width: 'max-content' }}>
-        {/* Triple for seamless mobile loop */}
+        {/* Triple for seamless loop - works on all screen sizes */}
         {[...partners, ...partners, ...partners].map((partner, index) => (
           <div
             key={`${partner.name}-${index}`}
-            className="flex-shrink-0 inline-flex items-center justify-center mx-4 sm:mx-6 overflow-hidden bg-white rounded-xl shadow-md border border-[var(--gold)]/20 w-[160px] sm:w-[200px] h-[160px] sm:h-[200px] transition-all duration-300 hover:shadow-lg hover:border-[var(--gold)]/40"
+            className="flex-shrink-0 inline-flex items-center justify-center mx-3 xs:mx-4 sm:mx-5 md:mx-6 overflow-hidden bg-white rounded-lg sm:rounded-xl shadow-md border border-[var(--gold)]/20 
+            w-[120px] h-[120px]
+            xs:w-[140px] xs:h-[140px]
+            sm:w-[160px] sm:h-[160px]
+            md:w-[180px] md:h-[180px]
+            lg:w-[200px] lg:h-[200px]
+            transition-all duration-300 hover:shadow-lg hover:border-[var(--gold)]/40"
           >
-            <div className={`relative w-full h-full ${partner.name === 'Trace TV' ? 'p-4 sm:p-6' : ''}`}>
+            <div className={`relative w-full h-full ${partner.name === 'Trace TV' ? 'p-3 xs:p-4 sm:p-5 md:p-6' : 'p-2 xs:p-3 sm:p-4'}`}>
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 fill
                 className="object-contain"
-                sizes="(max-width: 640px) 160px, 200px"
+                sizes="(max-width: 320px) 120px, (max-width: 375px) 140px, (max-width: 640px) 160px, (max-width: 768px) 180px, 200px"
+                loading="lazy"
               />
             </div>
           </div>
