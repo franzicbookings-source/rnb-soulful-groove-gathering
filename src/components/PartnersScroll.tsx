@@ -61,21 +61,21 @@ export default function PartnersScroll() {
         {[...partners, ...partners, ...partners].map((partner, index) => (
           <div
             key={`${partner.name}-${index}`}
-            className="flex-shrink-0 inline-flex items-center justify-center mx-3 xs:mx-4 sm:mx-5 md:mx-6 overflow-hidden bg-white rounded-lg sm:rounded-xl shadow-md border border-[var(--gold)]/20 
-            w-[120px] h-[120px]
-            xs:w-[140px] xs:h-[140px]
-            sm:w-[160px] sm:h-[160px]
-            md:w-[180px] md:h-[180px]
-            lg:w-[200px] lg:h-[200px]
+            className="flex-shrink-0 inline-flex items-center justify-center mx-2 xs:mx-3 sm:mx-4 md:mx-5 overflow-hidden bg-white rounded-lg sm:rounded-xl shadow-md border border-[var(--gold)]/20 
+            w-[100px] h-[100px]
+            xs:w-[120px] xs:h-[120px]
+            sm:w-[140px] sm:h-[140px]
+            md:w-[150px] md:h-[150px]
+            lg:w-[160px] lg:h-[160px]
             transition-all duration-300 hover:shadow-lg hover:border-[var(--gold)]/40"
           >
-            <div className={`relative w-full h-full ${partner.name === 'Trace TV' ? 'p-3 xs:p-4 sm:p-5 md:p-6' : 'p-2 xs:p-3 sm:p-4'}`}>
+            <div className={`relative w-full h-full ${partner.name === 'Trace TV' ? 'p-2 xs:p-3 sm:p-4 md:p-5' : 'p-1.5 xs:p-2 sm:p-3'}`}>
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 fill
                 className="object-contain"
-                sizes="(max-width: 320px) 120px, (max-width: 375px) 140px, (max-width: 640px) 160px, (max-width: 768px) 180px, 200px"
+                sizes="(max-width: 320px) 100px, (max-width: 375px) 120px, (max-width: 640px) 140px, (max-width: 768px) 150px, 160px"
                 loading="lazy"
               />
             </div>
