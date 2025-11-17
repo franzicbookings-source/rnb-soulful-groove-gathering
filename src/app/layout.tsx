@@ -8,7 +8,7 @@ import { JsonLd } from "./jsonld";
 export const metadata: Metadata = {
   title: {
     default: "RnB & Soulful Groove Gathering 2025 | Angels of the Promise Land",
-    template: "%s | RnB & Soulful Groove Gathering 2025"
+    template: "%s | RnB & Soulful Groove Gathering"
   },
   description: "Join us on December 14, 2025 for the ultimate RnB & Soulful music experience. Featuring Mlindo The Vocalist, top DJs from Metro FM and VOC FM. Angels of the Promise Land - A magical celebration of soul, rhythm, and unity.",
   keywords: ["RnB Festival", "Soulful Music", "Groove Gathering 2025", "Mlindo The Vocalist", "South Africa Music Festival", "December 2025 Events", "Metro FM", "VOC FM", "Angels of the Promise Land", "Live Music Event"],
@@ -18,6 +18,15 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://rnbsoulfulgroovegathering.co.za'),
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     type: 'website',
@@ -31,14 +40,14 @@ export const metadata: Metadata = {
         url: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png',
         width: 1200,
         height: 630,
-        alt: 'RnB & Soulful Groove Gathering 2025',
+        alt: 'RnB & Soulful Groove Gathering 2025 - Angels of the Promise Land',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RnB & Soulful Groove Gathering 2025',
-    description: 'Angels of the Promise Land - December 14, 2025. Featuring Mlindo The Vocalist and top DJs.',
+    title: 'RnB & Soulful Groove Gathering 2025 | Angels of the Promise Land',
+    description: 'December 14, 2025. Featuring Mlindo The Vocalist and top DJs. A magical celebration of soul, rhythm, and unity.',
     images: ['https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png'],
   },
   robots: {
@@ -66,6 +75,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="tQ_Z59uaA6O8qNp5PbyR2w8xT8lIy2Bq0muNV8iOdqA" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <meta property="og:image" content="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="RnB & Soulful Groove Gathering 2025 - Angels of the Promise Land" />
         <JsonLd />
       </head>
       <body className="antialiased">
