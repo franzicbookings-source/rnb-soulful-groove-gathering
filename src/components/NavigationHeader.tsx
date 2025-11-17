@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X, Ticket } from 'lucide-react';
 
@@ -45,10 +46,17 @@ export default function NavigationHeader() {
       }`}
     >
       <nav className="container mx-auto px-3 xs:px-4 sm:px-6 py-3 xs:py-4 flex items-center justify-between">
-        {/* Logo/Brand Space (left side) */}
-        <div className="flex-shrink-0">
-          {/* Empty space for logo - can add logo here later */}
-        </div>
+        {/* Logo/Brand (left side) */}
+        <Link href="/" className="flex-shrink-0 relative z-10">
+          <Image
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1763421164058.png?width=8000&height=8000&resize=contain"
+            alt="RnB & Soulful Groove Gathering Logo"
+            width={120}
+            height={120}
+            className="w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain transition-transform duration-300 hover:scale-110"
+            priority
+          />
+        </Link>
 
         {/* Desktop Navigation (right side) */}
         <div className="hidden md:flex items-center gap-4 lg:gap-8 ml-auto">
