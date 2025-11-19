@@ -11,6 +11,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Ticket, Calendar, User, Heart } from 'lucide-react';
 
+// ... keep existing artists array ...
+
 const artists = [
 {
   id: 4,
@@ -48,28 +50,8 @@ const artists = [
   bio: 'Dynamic DJ bringing high-energy soulful beats'
 }];
 
-const latestNews = [
-  {
-    id: 2,
-    title: 'Phase 2 Tickets Go On Sale Tomorrow at 5PM!',
-    category: 'Tickets',
-    date: '2025-11-07',
-    author: 'Event Team',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762545045759.png?width=800&height=500&resize=cover',
-    excerpt: 'Phase 2 tickets for the RNB & Soulful Groove Gathering – Summer Edition will officially be available tomorrow, 8 November at 5PM. Tickets start at R250.00 and are limited. Make sure you secure yours early before the next price tier activates.',
-  },
-  {
-    id: 1,
-    title: 'Breaking: Mlindo The Vocalist Joins Our Line-Up',
-    category: 'Announcements',
-    date: '2025-11-07',
-    author: 'Event Team',
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/image-1762540197177.png?width=800&height=500&resize=cover',
-    excerpt: 'We are thrilled to confirm that Mlindo The Vocalist, one of South Africa\'s most distinctive voices, is officially joining the RnB & Soulful Gathering 2025 line-up...',
-  }
-];
+// ... keep existing useCountUp hook ...
 
-// Custom hook for counting animation
 const useCountUp = (end: number, start: number = 0, duration: number = 2000, shouldStart: boolean = false) => {
   const [count, setCount] = useState(start);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -84,7 +66,6 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000, sho
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = Math.floor(start + range * easeOutQuart);
       
@@ -94,7 +75,7 @@ const useCountUp = (end: number, start: number = 0, duration: number = 2000, sho
         clearInterval(timer);
         setHasAnimated(true);
       }
-    }, 16); // ~60fps
+    }, 16);
     
     return () => clearInterval(timer);
   }, [end, start, duration, hasAnimated, shouldStart]);
@@ -107,16 +88,37 @@ export default function Home() {
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
+  const [latestNews, setLatestNews] = useState<any[]>([]);
+  const [newsLoading, setNewsLoading] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Counting animations for stats - only start when shouldAnimate is true
   const artistsCount = useCountUp(15, 0, 2000, shouldAnimate);
   const hoursCount = useCountUp(8, 1, 2000, shouldAnimate);
   const volunteersCount = useCountUp(50, 5, 2000, shouldAnimate);
 
-  // Set viewport height for mobile browsers
+  // Fetch latest news articles
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch('/api/news-articles?limit=2');
+        if (response.ok) {
+          const data = await response.json();
+          setLatestNews(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch news:', error);
+      } finally {
+        setNewsLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  // ... keep all existing useEffect hooks for viewport, scroll, video, stats ...
+
   useEffect(() => {
     const setVH = () => {
       const vh = window.innerHeight;
@@ -140,7 +142,6 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Video autoplay handling - starts immediately on mount
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -161,11 +162,10 @@ export default function Home() {
         await video.play();
         setVideoPlaying(true);
       } catch (err) {
-        // Autoplay blocked - will retry on user interaction
+        // Autoplay blocked
       }
     };
 
-    // Multiple play attempts for aggressive autoplay
     const playAttempts = async () => {
       await attemptPlay();
       setTimeout(attemptPlay, 100);
@@ -223,7 +223,6 @@ export default function Home() {
     };
   }, []);
 
-  // IntersectionObserver for counting animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -255,7 +254,7 @@ export default function Home() {
     <div className="min-h-screen bg-black">
       <NavigationHeader />
 
-      {/* Hero Section */}
+      {/* ... keep entire Hero Section unchanged ... */}
       <section 
         className="hero-section relative flex items-center justify-center overflow-hidden" 
         style={{ 
@@ -265,7 +264,6 @@ export default function Home() {
           background: 'linear-gradient(135deg, #2D1B3D 0%, #1A1A3E 50%, #0F0F2E 100%)'
         }}
       >
-        {/* Background Video - loads immediately with poster fallback */}
         <video
           ref={videoRef}
           className="hero-bg-video absolute inset-0 w-full h-full object-cover"
@@ -286,16 +284,13 @@ export default function Home() {
           <source src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/grok-video-356d17ca-0648-46f4-ab06-050c2eea57a1-8-1763151604813.mp4" type="video/mp4" />
         </video>
         
-        {/* Gradient Overlay */}
         <div className="hero-overlay absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70 pointer-events-none" style={{ zIndex: 1 }} />
 
-        {/* Hero Content */}
         <div className="relative px-3 xs:px-4 sm:px-6 py-6 xs:py-8 sm:py-12 mx-auto max-w-5xl w-full flex flex-col justify-center items-center h-full text-center" style={{ zIndex: 2 }}>
           <div className="mt-4 xs:mt-6 sm:mt-8">
             <CountdownTimer />
           </div>
 
-          {/* Buttons */}
           <div className="mt-4 xs:mt-6 sm:mt-8 flex flex-row gap-3 xs:gap-4 sm:gap-6 items-center justify-center px-3 xs:px-4 w-full max-w-2xl mx-auto">
             <a
               href="https://computicket.com/event/rnb-soulful-groove-gathering-summer-edition-/f6574621-5e8d-4a8a-aba9-8fa8bb6651aM"
@@ -316,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Line-Up Section */}
+      {/* ... keep entire Line-Up Section unchanged ... */}
       <section id="lineup" className="section-purple py-6 xs:py-8 sm:py-12 px-3 xs:px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-5 xs:mb-6 sm:mb-8 animate-fade-in-up">
@@ -328,7 +323,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Desktop Grid */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 lg:gap-8">
             {artists.slice(0, 3).map((artist, index) => (
               <Link
@@ -362,7 +356,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Mobile Horizontal Scroll */}
           <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-3 xs:-mx-4 px-3 xs:px-4">
             <div className="flex gap-3 xs:gap-4 snap-x snap-mandatory">
               {artists.slice(0, 3).map((artist, index) => (
@@ -407,7 +400,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+      {/* ... keep Gallery Section unchanged ... */}
       <section id="gallery" className="section-light py-6 xs:py-8 sm:py-12 px-3 xs:px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-4 xs:mb-5 sm:mb-8">
@@ -430,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners Section */}
+      {/* ... keep Partners Section unchanged ... */}
       <section className="section-dark py-5 xs:py-6 sm:py-10">
         <div className="container mx-auto px-3 xs:px-4 mb-3">
           <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-2 glow-gold">
@@ -443,19 +436,16 @@ export default function Home() {
         <PartnersScroll />
       </section>
 
-      {/* Call to Action Section */}
+      {/* ... keep Call to Action Section unchanged ... */}
       <section className="section-purple py-6 xs:py-8 sm:py-12 px-3 xs:px-4 relative overflow-hidden">
-        {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-24 xs:w-32 h-24 xs:h-32 rounded-full bg-[var(--gold)] blur-3xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-32 xs:w-40 h-32 xs:h-40 rounded-full bg-[var(--gold)] blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
-          {/* Main CTA Card */}
           <div className="bg-gradient-to-br from-black/60 via-[#2D1B3D]/40 to-black/60 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-2xl xs:rounded-3xl p-4 xs:p-6 sm:p-8 shadow-2xl">
             
-            {/* Top Badge */}
             <div className="flex justify-center mb-4 xs:mb-6">
               <div className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-5 py-1.5 xs:py-2 bg-[var(--gold)]/10 border border-[var(--gold)]/40 rounded-full">
                 <div className="w-1.5 xs:w-2 h-1.5 xs:h-2 rounded-full bg-[var(--gold)] animate-pulse"></div>
@@ -463,7 +453,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Event Highlights Grid - Mobile Responsive */}
             <div ref={statsRef} className="grid grid-cols-3 gap-2 xs:gap-3 sm:gap-4 mb-6 xs:mb-8 max-w-3xl mx-auto">
               <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-xl xs:rounded-2xl p-2 xs:p-3 sm:p-5 text-center">
                 <div className="text-lg xs:text-xl sm:text-3xl font-bold text-[var(--gold)] mb-1 sm:mb-2">{artistsCount}+</div>
@@ -479,7 +468,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4">
               <a
                 href="https://computicket.com/event/rnb-soulful-groove-gathering-summer-edition-/f6574621-5e8d-4a8a-aba9-8fa8bb6651aM"
@@ -504,7 +492,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* News & Updates Section */}
+      {/* News & Updates Section - Updated to fetch from database */}
       <section id="news" className="section-dark py-6 xs:py-8 sm:py-12 px-3 xs:px-4">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-5 xs:mb-6 sm:mb-8">
@@ -516,115 +504,123 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Desktop Grid */}
-          <div className="hidden sm:grid sm:grid-cols-2 gap-4 xs:gap-6 lg:gap-8">
-            {latestNews.map((article) => (
-              <Link
-                key={article.id}
-                href="/news"
-                className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white/10"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    quality={85}
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
-                    <span className="px-3 xs:px-4 py-1 xs:py-1.5 bg-white text-black text-xs xs:text-sm font-bold rounded-full uppercase tracking-wider">
-                      {article.category}
-                    </span>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-                </div>
-                
-                <div className="p-4 xs:p-5 sm:p-6">
-                  <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 xs:mb-3 group-hover:glow-gold transition-all line-clamp-2">
-                    {article.title}
-                  </h3>
-                  
-                  <div className="flex items-center gap-3 xs:gap-4 text-xs xs:text-sm text-[#CCCCCC]/70 mb-3 xs:mb-4">
-                    <div className="flex items-center gap-1 xs:gap-1.5">
-                      <Calendar size={14} className="xs:w-4 xs:h-4" />
-                      <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          {newsLoading ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[var(--gold)]"></div>
+            </div>
+          ) : (
+            <>
+              {/* Desktop Grid */}
+              <div className="hidden sm:grid sm:grid-cols-2 gap-4 xs:gap-6 lg:gap-8">
+                {latestNews.map((article) => (
+                  <Link
+                    key={article.id}
+                    href="/news"
+                    className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white/10"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        quality={85}
+                        loading="lazy"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
+                        <span className="px-3 xs:px-4 py-1 xs:py-1.5 bg-white text-black text-xs xs:text-sm font-bold rounded-full uppercase tracking-wider">
+                          {article.category}
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
                     </div>
-                    <div className="flex items-center gap-1 xs:gap-1.5">
-                      <User size={14} className="xs:w-4 xs:h-4" />
-                      <span>{article.author}</span>
-                    </div>
-                  </div>
-                  
-                  <p className="text-[#CCCCCC] text-sm xs:text-base mb-3 xs:mb-4 line-clamp-3">
-                    {article.excerpt}
-                  </p>
-                  
-                  <span className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
-                    Read More →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Horizontal Scroll */}
-          <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-3 xs:-mx-4 px-3 xs:px-4">
-            <div className="flex gap-3 xs:gap-4 snap-x snap-mandatory">
-              {latestNews.map((article) => (
-                <Link
-                  key={article.id}
-                  href="/news"
-                  className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex-shrink-0 w-[280px] xs:w-[320px] snap-center"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      sizes="(max-width: 375px) 280px, 320px"
-                      quality={80}
-                      loading="lazy"
-                      className="object-cover transition-transform duration-700 group-active:scale-110"
-                    />
-                    <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
-                      <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 bg-white text-black text-[10px] xs:text-xs font-bold rounded-full uppercase tracking-wider">
-                        {article.category}
+                    
+                    <div className="p-4 xs:p-5 sm:p-6">
+                      <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 xs:mb-3 group-hover:glow-gold transition-all line-clamp-2">
+                        {article.title}
+                      </h3>
+                      
+                      <div className="flex items-center gap-3 xs:gap-4 text-xs xs:text-sm text-[#CCCCCC]/70 mb-3 xs:mb-4">
+                        <div className="flex items-center gap-1 xs:gap-1.5">
+                          <Calendar size={14} className="xs:w-4 xs:h-4" />
+                          <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                        </div>
+                        <div className="flex items-center gap-1 xs:gap-1.5">
+                          <User size={14} className="xs:w-4 xs:h-4" />
+                          <span>{article.author}</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-[#CCCCCC] text-sm xs:text-base mb-3 xs:mb-4 line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                      
+                      <span className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
+                        Read More →
                       </span>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-                  </div>
-                  
-                  <div className="p-4 xs:p-5">
-                    <h3 className="text-base xs:text-xl font-bold text-white mb-2 line-clamp-2">
-                      {article.title}
-                    </h3>
-                    
-                    <div className="flex items-center gap-2 xs:gap-3 text-[10px] xs:text-xs text-[#CCCCCC]/70 mb-2 xs:mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar size={12} className="xs:w-3.5 xs:h-3.5" />
-                        <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Horizontal Scroll */}
+              <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-3 xs:-mx-4 px-3 xs:px-4">
+                <div className="flex gap-3 xs:gap-4 snap-x snap-mandatory">
+                  {latestNews.map((article) => (
+                    <Link
+                      key={article.id}
+                      href="/news"
+                      className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex-shrink-0 w-[280px] xs:w-[320px] snap-center"
+                    >
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        <Image
+                          src={article.image}
+                          alt={article.title}
+                          fill
+                          sizes="(max-width: 375px) 280px, 320px"
+                          quality={80}
+                          loading="lazy"
+                          className="object-cover transition-transform duration-700 group-active:scale-110"
+                        />
+                        <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
+                          <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 bg-white text-black text-[10px] xs:text-xs font-bold rounded-full uppercase tracking-wider">
+                            {article.category}
+                          </span>
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
                       </div>
-                      <div className="flex items-center gap-1">
-                        <User size={12} className="xs:w-3.5 xs:h-3.5" />
-                        <span>{article.author}</span>
+                      
+                      <div className="p-4 xs:p-5">
+                        <h3 className="text-base xs:text-xl font-bold text-white mb-2 line-clamp-2">
+                          {article.title}
+                        </h3>
+                        
+                        <div className="flex items-center gap-2 xs:gap-3 text-[10px] xs:text-xs text-[#CCCCCC]/70 mb-2 xs:mb-3">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={12} className="xs:w-3.5 xs:h-3.5" />
+                            <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <User size={12} className="xs:w-3.5 xs:h-3.5" />
+                            <span>{article.author}</span>
+                          </div>
+                        </div>
+                        
+                        <p className="text-[#CCCCCC] text-xs xs:text-sm mb-2 xs:mb-3 line-clamp-3">
+                          {article.excerpt}
+                        </p>
+                        
+                        <span className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
+                          Read More →
+                        </span>
                       </div>
-                    </div>
-                    
-                    <p className="text-[#CCCCCC] text-xs xs:text-sm mb-2 xs:mb-3 line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    
-                    <span className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
-                      Read More →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
 
           <div className="text-center mt-5 xs:mt-6 sm:mt-8">
             <Link
