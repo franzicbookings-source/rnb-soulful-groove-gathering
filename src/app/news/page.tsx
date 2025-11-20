@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import NavigationHeader from '@/components/NavigationHeader';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
-import { Calendar, User, X } from 'lucide-react';
+import { Calendar, User } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
+import Link from 'next/link';
 
 interface Article {
   id: number;
@@ -19,7 +20,6 @@ interface Article {
 }
 
 export default function NewsPage() {
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -89,10 +89,9 @@ export default function NewsPage() {
               {articles.map((article) => (
                 <article
                   key={article.id}
-                  onClick={() => setSelectedArticle(article)}
-                  className="group bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-[var(--gold)]/30 hover:border-[var(--gold)] transition-all duration-300 cursor-pointer touch-manipulation flex flex-col md:flex-row"
+                  className="group bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border-2 border-[var(--gold)]/30 hover:border-[var(--gold)] transition-all duration-300 flex flex-col md:flex-row"
                 >
-                  <div className="relative w-full md:w-80 aspect-[16/10] md:aspect-[4/3] overflow-hidden flex-shrink-0">
+                  <Link href={`/news/${article.id}`} className="relative w-full md:w-80 aspect-[16/10] md:aspect-[4/3] overflow-hidden flex-shrink-0">
                     <Image
                       src={article.image}
                       alt={article.title}
@@ -104,12 +103,14 @@ export default function NewsPage() {
                         {article.category}
                       </span>
                     </div>
-                  </div>
+                  </Link>
                   
                   <div className="p-5 md:p-6 flex-1 flex flex-col">
-                    <h2 className="text-xl md:text-2xl font-bold text-[var(--gold)] mb-3 group-hover:glow-gold transition-all">
-                      {article.title}
-                    </h2>
+                    <Link href={`/news/${article.id}`}>
+                      <h2 className="text-xl md:text-2xl font-bold text-[var(--gold)] mb-3 group-hover:glow-gold transition-all">
+                        {article.title}
+                      </h2>
+                    </Link>
                     
                     <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs md:text-sm text-[var(--cream)]/70 mb-3 md:mb-4">
                       <div className="flex items-center gap-1.5">
@@ -120,15 +121,23 @@ export default function NewsPage() {
                         <User size={14} className="md:w-4 md:h-4" />
                         <span>{article.author}</span>
                       </div>
+                      <ShareButton 
+                        title={article.title}
+                        url={`/news/${article.id}`}
+                        excerpt={article.excerpt}
+                      />
                     </div>
                     
                     <p className="text-[var(--cream)]/80 mb-4 text-sm md:text-base flex-1">
                       {article.excerpt}
                     </p>
                     
-                    <span className="text-[var(--gold)] font-semibold text-sm md:text-base">
+                    <Link 
+                      href={`/news/${article.id}`}
+                      className="text-[var(--gold)] font-semibold text-sm md:text-base hover:underline"
+                    >
                       Read Full Article →
-                    </span>
+                    </Link>
                   </div>
                 </article>
               ))}
@@ -136,82 +145,6 @@ export default function NewsPage() {
           )}
         </div>
       </section>
-
-      {/* Article Modal */}
-      {selectedArticle && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/90 backdrop-blur-sm overflow-y-auto">
-          <div className="relative w-full min-h-screen md:min-h-0 md:max-w-4xl md:my-8 md:max-h-[90vh] md:overflow-y-auto bg-gradient-to-b from-[var(--midnight-blue)] to-[var(--deep-brown)] md:border-2 md:border-[var(--gold)] md:rounded-lg shadow-2xl">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedArticle(null)}
-              className="sticky md:absolute top-4 right-4 z-10 p-2.5 md:p-2 bg-[var(--gold)] text-black rounded-full hover:scale-110 transition-transform shadow-lg touch-manipulation"
-              aria-label="Close article"
-            >
-              <X size={22} className="md:w-6 md:h-6" />
-            </button>
-
-            {/* Article Header Image */}
-            <div className="relative w-full h-64 md:h-80 lg:h-96">
-              <Image
-                src={selectedArticle.image}
-                alt={selectedArticle.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--midnight-blue)] to-transparent" />
-            </div>
-
-            {/* Article Content */}
-            <div className="p-6 md:p-8 lg:p-10">
-              <div className="mb-4">
-                <span className="px-3 py-1 bg-[var(--gold)] text-black text-xs md:text-sm font-semibold rounded-full">
-                  {selectedArticle.category}
-                </span>
-              </div>
-
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[var(--gold)] mb-4 md:mb-5 glow-gold leading-tight">
-                {selectedArticle.title}
-              </h1>
-
-              <div className="flex flex-wrap items-center gap-4 md:gap-6 text-xs md:text-sm text-[var(--cream)]/70 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-[var(--gold)]/30">
-                <div className="flex items-center gap-2">
-                  <Calendar size={16} className="md:w-[18px] md:h-[18px]" />
-                  <span>{new Date(selectedArticle.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <User size={16} className="md:w-[18px] md:h-[18px]" />
-                  <span>{selectedArticle.author}</span>
-                </div>
-                <ShareButton 
-                  title={selectedArticle.title}
-                  url="/news"
-                  excerpt={selectedArticle.excerpt}
-                />
-              </div>
-
-              <div 
-                className="prose prose-invert prose-sm md:prose-base lg:prose-lg max-w-none 
-                prose-headings:text-[var(--gold)] prose-headings:font-bold prose-headings:mb-3 prose-headings:mt-6 
-                prose-h3:text-xl prose-h3:md:text-2xl
-                prose-p:text-[var(--cream)]/90 prose-p:leading-relaxed prose-p:text-sm prose-p:md:text-base
-                prose-li:text-[var(--cream)]/90 prose-li:text-sm prose-li:md:text-base
-                prose-strong:text-[var(--gold)] prose-strong:font-semibold
-                prose-ul:list-disc prose-ul:ml-5 prose-ul:space-y-1"
-                dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
-              />
-
-              <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-[var(--gold)]/30">
-                <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="w-full md:w-auto px-8 md:px-10 py-3 md:py-3.5 bg-[var(--gold)] text-black text-sm md:text-base font-semibold rounded-full hover:scale-105 transition-transform touch-manipulation"
-                >
-                  Close Article
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       <Footer />
     </div>

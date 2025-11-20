@@ -518,7 +518,7 @@ export default function Home() {
                     key={article.id}
                     className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white/10"
                   >
-                    <Link href="/news" className="block">
+                    <Link href={`/news/${article.id}`} className="block">
                       <div className="relative aspect-[16/10] overflow-hidden">
                         <Image
                           src={article.image}
@@ -539,7 +539,7 @@ export default function Home() {
                     </Link>
                     
                     <div className="p-4 xs:p-5 sm:p-6">
-                      <Link href="/news">
+                      <Link href={`/news/${article.id}`}>
                         <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 xs:mb-3 group-hover:glow-gold transition-all line-clamp-2">
                           {article.title}
                         </h3>
@@ -558,7 +558,7 @@ export default function Home() {
                         </div>
                         <ShareButton 
                           title={article.title}
-                          url="/news"
+                          url={`/news/${article.id}`}
                           excerpt={article.excerpt}
                         />
                       </div>
@@ -567,7 +567,7 @@ export default function Home() {
                         {article.excerpt}
                       </p>
                       
-                      <Link href="/news" className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
+                      <Link href={`/news/${article.id}`} className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
                         Read More →
                       </Link>
                     </div>
@@ -583,7 +583,7 @@ export default function Home() {
                       key={article.id}
                       className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex-shrink-0 w-[280px] xs:w-[320px] snap-center"
                     >
-                      <Link href="/news">
+                      <Link href={`/news/${article.id}`}>
                         <div className="relative aspect-[16/10] overflow-hidden">
                           <Image
                             src={article.image}
@@ -604,7 +604,7 @@ export default function Home() {
                       </Link>
                       
                       <div className="p-4 xs:p-5">
-                        <Link href="/news">
+                        <Link href={`/news/${article.id}`}>
                           <h3 className="text-base xs:text-xl font-bold text-white mb-2 line-clamp-2">
                             {article.title}
                           </h3>
@@ -623,7 +623,7 @@ export default function Home() {
                           </div>
                           <ShareButton 
                             title={article.title}
-                            url="/news"
+                            url={`/news/${article.id}`}
                             excerpt={article.excerpt}
                           />
                         </div>
@@ -632,7 +632,7 @@ export default function Home() {
                           {article.excerpt}
                         </p>
                         
-                        <Link href="/news" className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
+                        <Link href={`/news/${article.id}`} className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
                           Read More →
                         </Link>
                       </div>
