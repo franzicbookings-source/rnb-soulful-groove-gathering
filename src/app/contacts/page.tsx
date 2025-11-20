@@ -224,7 +224,7 @@ export default function ContactsPage() {
               <Facebook size={24} className="text-white" />
             </a>
             <a
-              href="https://www.instagram.com/boxerngwenya?igsh=czJ0anQ2bGt5ZWZi"
+              href="https://www.instagram.com/rnbgroove_nn?igsh=c2c1M2ljb2Q4Yzdj"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/30 hover:bg-white/20 hover:border-white transition-all duration-300"

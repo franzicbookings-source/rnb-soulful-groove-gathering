@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Social Media Icons */}
           <div className="flex gap-2.5 xs:gap-3 sm:gap-4">
             <a
-              href="https://www.instagram.com/boxerngwenya?igsh=czJ0anQ2bGt5ZWZi"
+              href="https://www.instagram.com/rnbgroove_nn?igsh=c2c1M2ljb2Q4Yzdj"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
