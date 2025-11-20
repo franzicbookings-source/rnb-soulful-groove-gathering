@@ -1,7 +1,7 @@
 "use client";
 
 import { Share2, Facebook, Mail, Link as LinkIcon, MessageCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface ShareButtonProps {
   title: string;
@@ -12,9 +12,35 @@ interface ShareButtonProps {
 export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url;
   const shareText = excerpt || title;
+
+  // Calculate menu position when opened
+  useEffect(() => {
+    if (showMenu && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const menuWidth = 200;
+      
+      // Position below the button
+      let top = rect.bottom + 8;
+      let left = rect.right - menuWidth;
+      
+      // Ensure menu doesn't go off-screen on the left
+      if (left < 8) {
+        left = 8;
+      }
+      
+      // Ensure menu doesn't go off-screen on the right
+      if (left + menuWidth > window.innerWidth - 8) {
+        left = window.innerWidth - menuWidth - 8;
+      }
+      
+      setMenuPosition({ top, left });
+    }
+  }, [showMenu]);
 
   const handleCopyLink = async () => {
     try {
@@ -75,8 +101,9 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
   };
 
   return (
-    <div className="relative">
+    <>
       <button
+        ref={buttonRef}
         onClick={() => setShowMenu(!showMenu)}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all duration-200 group"
         aria-label="Share article"
@@ -93,8 +120,14 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
             onClick={() => setShowMenu(false)}
           />
 
-          {/* Share Menu */}
-          <div className="absolute top-full right-0 mt-2 z-50 bg-[#1A1A1A] border border-white/20 rounded-xl shadow-2xl overflow-hidden min-w-[200px]">
+          {/* Share Menu - Fixed positioning */}
+          <div 
+            className="fixed z-50 bg-[#1A1A1A] border border-white/20 rounded-xl shadow-2xl overflow-hidden min-w-[200px]"
+            style={{
+              top: `${menuPosition.top}px`,
+              left: `${menuPosition.left}px`,
+            }}
+          >
             <div className="p-2 space-y-1">
               <button
                 onClick={() => handleShare('facebook')}
@@ -165,6 +198,6 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
