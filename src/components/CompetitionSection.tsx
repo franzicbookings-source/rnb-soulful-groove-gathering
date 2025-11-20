@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { Camera, Upload, Sparkles, Gift, X } from 'lucide-react';
+import { Camera, Upload, Gift, X } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function CompetitionSection() {
@@ -160,9 +160,8 @@ export default function CompetitionSection() {
         <div className="container mx-auto max-w-6xl relative z-10">
           {/* Header */}
           <div className="text-center mb-6 xs:mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-4 xs:px-6 py-2 xs:py-2.5 bg-[var(--gold)]/10 border-2 border-[var(--gold)]/40 rounded-full mb-4 xs:mb-6">
-              <Sparkles className="w-4 h-4 xs:w-5 xs:h-5 text-[var(--gold)] animate-pulse" />
-              <span className="text-[var(--gold)] text-xs xs:text-sm font-bold uppercase tracking-wider">Competition Active</span>
+            <div className="inline-flex items-center justify-center px-4 xs:px-6 py-2 xs:py-2.5 bg-[var(--gold)]/10 border-2 border-[var(--gold)]/40 rounded-full mb-4 xs:mb-6">
+              <span className="text-[var(--gold)] text-xs xs:text-sm font-bold uppercase tracking-wider">Competitions Active</span>
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 xs:mb-4 glow-gold">
@@ -219,7 +218,7 @@ export default function CompetitionSection() {
 
             {/* Right: Entry Form */}
             <div className="bg-gradient-to-br from-black/60 via-[#2D1B3D]/50 to-black/60 backdrop-blur-md border-2 border-[var(--gold)]/30 rounded-2xl xs:rounded-3xl p-5 xs:p-6 sm:p-8">
-              <h3 className="text-xl xs:text-2xl font-bold text-[var(--gold)] mb-4 xs:mb-6">Enter Competition</h3>
+              <h3 className="text-xl xs:text-2xl font-bold text-[var(--gold)] mb-4 xs:mb-6">Enter Competitions</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4 xs:space-y-5">
                 {/* First Name */}
@@ -400,7 +399,7 @@ export default function CompetitionSection() {
             </h3>
             
             <p className="text-sm xs:text-base text-[var(--cream)] mb-6 xs:mb-8 leading-relaxed">
-              Thank you for entering our competition! Winners will be announced on <strong className="text-[var(--gold)]">10 December 2025</strong>.
+              Thank you for entering our competitions! Winners will be announced on <strong className="text-[var(--gold)]">10 December 2025</strong>.
             </p>
 
             <button
