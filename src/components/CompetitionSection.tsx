@@ -43,6 +43,7 @@ export default function CompetitionSection() {
         setImagePreview(reader.result as string);
       };
       reader.readAsDataURL(file);
+      toast.success('Image selected successfully!');
     }
   };
 
@@ -93,9 +94,13 @@ export default function CompetitionSection() {
 
     try {
       // Upload image
+      toast.loading('Uploading image...');
       const imageUrl = await uploadImageToSupabase(selectedImage);
+      toast.dismiss();
+      toast.success('Image uploaded successfully!');
 
       // Submit entry
+      toast.loading('Submitting entry...');
       const response = await fetch('/api/competition-entries', {
         method: 'POST',
         headers: {
@@ -112,12 +117,14 @@ export default function CompetitionSection() {
       });
 
       const data = await response.json();
+      toast.dismiss();
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to submit entry');
       }
 
       // Success!
+      toast.success('Entry submitted successfully!');
       setShowSuccessModal(true);
       
       // Reset form
@@ -133,6 +140,7 @@ export default function CompetitionSection() {
       
     } catch (error: any) {
       console.error('Submission error:', error);
+      toast.dismiss();
       toast.error(error.message || 'Failed to submit your entry. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -145,6 +153,11 @@ export default function CompetitionSection() {
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+    toast.info('Image removed');
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -317,29 +330,31 @@ export default function CompetitionSection() {
                     Upload Photo <span className="text-red-400">*</span>
                   </label>
                   
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    onChange={handleImageSelect}
+                    className="hidden"
+                    id="photo-upload"
+                  />
+                  
                   {!imagePreview ? (
-                    <div 
-                      onClick={() => fileInputRef.current?.click()}
-                      className="relative border-2 border-dashed border-[var(--gold)]/40 rounded-lg p-6 xs:p-8 text-center cursor-pointer hover:border-[var(--gold)] transition-colors bg-black/20 group"
+                    <label
+                      htmlFor="photo-upload"
+                      className="relative border-2 border-dashed border-[var(--gold)]/40 rounded-lg p-6 xs:p-8 text-center cursor-pointer hover:border-[var(--gold)] transition-colors bg-black/20 group block"
                     >
                       <Upload className="w-8 h-8 xs:w-10 xs:h-10 text-[var(--gold)]/60 mx-auto mb-3 group-hover:text-[var(--gold)] transition-colors" />
-                      <p className="text-[var(--cream)]/80 text-xs xs:text-sm mb-1">
-                        Click to upload photo of our branded car
+                      <p className="text-[var(--cream)]/80 text-xs xs:text-sm mb-1 font-semibold">
+                        Tap here to take or upload photo
                       </p>
                       <p className="text-[var(--cream)]/50 text-[10px] xs:text-xs">
                         PNG, JPG up to 10MB
                       </p>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageSelect}
-                        className="hidden"
-                        required
-                      />
-                    </div>
+                    </label>
                   ) : (
-                    <div className="relative rounded-lg overflow-hidden border-2 border-[var(--gold)]/40">
+                    <div className="relative rounded-lg overflow-hidden border-2 border-[var(--gold)]/60">
                       <Image
                         src={imagePreview}
                         alt="Selected car photo"
@@ -350,10 +365,17 @@ export default function CompetitionSection() {
                       <button
                         type="button"
                         onClick={removeImage}
-                        className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                        className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors shadow-lg"
+                        aria-label="Remove image"
                       >
                         <X size={16} />
                       </button>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                        <p className="text-white text-xs font-semibold flex items-center gap-2">
+                          <Camera size={14} />
+                          Photo ready to submit
+                        </p>
+                      </div>
                     </div>
                   )}
                 </div>
