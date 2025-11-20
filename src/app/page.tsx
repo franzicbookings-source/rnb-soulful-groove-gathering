@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import CountdownTimer from '@/components/CountdownTimer';
 import Gallery from '@/components/Gallery';
 import PartnersScroll from '@/components/PartnersScroll';
-import CompetitionSection from '@/components/CompetitionSection';
 import { ShareButton } from '@/components/ShareButton';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
@@ -437,9 +436,6 @@ export default function Home() {
         </div>
         <PartnersScroll />
       </section>
-
-      {/* Competition Section - Spot & Win */}
-      <CompetitionSection />
 
       {/* ... keep Call to Action Section unchanged ... */}
       <section className="section-purple py-6 xs:py-8 sm:py-12 px-3 xs:px-4 relative overflow-hidden">

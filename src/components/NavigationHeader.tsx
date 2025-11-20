@@ -33,6 +33,7 @@ export default function NavigationHeader() {
     { href: '/lineup', label: 'Line-Up' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/news', label: 'News' },
+    { href: '/competition', label: 'Competition' },
     { href: '/tickets', label: 'Tickets' },
     { href: '/volunteer', label: 'Volunteer' },
     { href: '/contacts', label: 'Contacts' },

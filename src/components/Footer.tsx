@@ -56,6 +56,9 @@ export default function Footer() {
             <Link href="/gallery" className="text-[var(--cream)]/90 hover:text-[var(--gold)] transition-colors font-medium touch-manipulation whitespace-nowrap">
               Gallery
             </Link>
+            <Link href="/competition" className="text-[var(--cream)]/90 hover:text-[var(--gold)] transition-colors font-medium touch-manipulation whitespace-nowrap">
+              Competition
+            </Link>
             <Link href="/about" className="text-[var(--cream)]/90 hover:text-[var(--gold)] transition-colors font-medium touch-manipulation whitespace-nowrap">
               About
             </Link>
