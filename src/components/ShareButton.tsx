@@ -61,7 +61,8 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
 
     switch (platform) {
       case 'facebook':
-        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        // Use modern Facebook Share Dialog API
+        shareLink = `https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=${encodedUrl}&redirect_uri=${encodedUrl}`;
         break;
       case 'twitter':
         shareLink = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
@@ -93,7 +94,7 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
           '*'
         );
       } else {
-        window.open(shareLink, '_blank', 'noopener,noreferrer');
+        window.open(shareLink, '_blank', 'noopener,noreferrer,width=600,height=400');
       }
     }
 
