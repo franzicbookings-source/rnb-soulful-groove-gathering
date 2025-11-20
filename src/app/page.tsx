@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import CountdownTimer from '@/components/CountdownTimer';
 import Gallery from '@/components/Gallery';
 import PartnersScroll from '@/components/PartnersScroll';
+import { ShareButton } from '@/components/ShareButton';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -513,54 +514,64 @@ export default function Home() {
               {/* Desktop Grid */}
               <div className="hidden sm:grid sm:grid-cols-2 gap-4 xs:gap-6 lg:gap-8">
                 {latestNews.map((article) => (
-                  <Link
+                  <div
                     key={article.id}
-                    href="/news"
                     className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white/10"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                        quality={85}
-                        loading="lazy"
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
-                        <span className="px-3 xs:px-4 py-1 xs:py-1.5 bg-white text-black text-xs xs:text-sm font-bold rounded-full uppercase tracking-wider">
-                          {article.category}
-                        </span>
+                    <Link href="/news" className="block">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        <Image
+                          src={article.image}
+                          alt={article.title}
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          quality={85}
+                          loading="lazy"
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
+                          <span className="px-3 xs:px-4 py-1 xs:py-1.5 bg-white text-black text-xs xs:text-sm font-bold rounded-full uppercase tracking-wider">
+                            {article.category}
+                          </span>
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-                    </div>
+                    </Link>
                     
                     <div className="p-4 xs:p-5 sm:p-6">
-                      <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 xs:mb-3 group-hover:glow-gold transition-all line-clamp-2">
-                        {article.title}
-                      </h3>
+                      <Link href="/news">
+                        <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 xs:mb-3 group-hover:glow-gold transition-all line-clamp-2">
+                          {article.title}
+                        </h3>
+                      </Link>
                       
-                      <div className="flex items-center gap-3 xs:gap-4 text-xs xs:text-sm text-[#CCCCCC]/70 mb-3 xs:mb-4">
-                        <div className="flex items-center gap-1 xs:gap-1.5">
-                          <Calendar size={14} className="xs:w-4 xs:h-4" />
-                          <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                      <div className="flex items-center justify-between mb-3 xs:mb-4">
+                        <div className="flex items-center gap-3 xs:gap-4 text-xs xs:text-sm text-[#CCCCCC]/70">
+                          <div className="flex items-center gap-1 xs:gap-1.5">
+                            <Calendar size={14} className="xs:w-4 xs:h-4" />
+                            <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                          </div>
+                          <div className="flex items-center gap-1 xs:gap-1.5">
+                            <User size={14} className="xs:w-4 xs:h-4" />
+                            <span>{article.author}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-1 xs:gap-1.5">
-                          <User size={14} className="xs:w-4 xs:h-4" />
-                          <span>{article.author}</span>
-                        </div>
+                        <ShareButton 
+                          title={article.title}
+                          url="/news"
+                          excerpt={article.excerpt}
+                        />
                       </div>
                       
                       <p className="text-[#CCCCCC] text-sm xs:text-base mb-3 xs:mb-4 line-clamp-3">
                         {article.excerpt}
                       </p>
                       
-                      <span className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
+                      <Link href="/news" className="text-white font-semibold text-sm xs:text-base hover:underline inline-flex items-center gap-2">
                         Read More →
-                      </span>
+                      </Link>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
 
@@ -568,54 +579,64 @@ export default function Home() {
               <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-3 xs:-mx-4 px-3 xs:px-4">
                 <div className="flex gap-3 xs:gap-4 snap-x snap-mandatory">
                   {latestNews.map((article) => (
-                    <Link
+                    <div
                       key={article.id}
-                      href="/news"
                       className="group card-elevated bg-[#1A1A1A]/60 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 flex-shrink-0 w-[280px] xs:w-[320px] snap-center"
                     >
-                      <div className="relative aspect-[16/10] overflow-hidden">
-                        <Image
-                          src={article.image}
-                          alt={article.title}
-                          fill
-                          sizes="(max-width: 375px) 280px, 320px"
-                          quality={80}
-                          loading="lazy"
-                          className="object-cover transition-transform duration-700 group-active:scale-110"
-                        />
-                        <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
-                          <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 bg-white text-black text-[10px] xs:text-xs font-bold rounded-full uppercase tracking-wider">
-                            {article.category}
-                          </span>
+                      <Link href="/news">
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                          <Image
+                            src={article.image}
+                            alt={article.title}
+                            fill
+                            sizes="(max-width: 375px) 280px, 320px"
+                            quality={80}
+                            loading="lazy"
+                            className="object-cover transition-transform duration-700 group-active:scale-110"
+                          />
+                          <div className="absolute top-3 xs:top-4 left-3 xs:left-4">
+                            <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 bg-white text-black text-[10px] xs:text-xs font-bold rounded-full uppercase tracking-wider">
+                              {article.category}
+                            </span>
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
-                      </div>
+                      </Link>
                       
                       <div className="p-4 xs:p-5">
-                        <h3 className="text-base xs:text-xl font-bold text-white mb-2 line-clamp-2">
-                          {article.title}
-                        </h3>
+                        <Link href="/news">
+                          <h3 className="text-base xs:text-xl font-bold text-white mb-2 line-clamp-2">
+                            {article.title}
+                          </h3>
+                        </Link>
                         
-                        <div className="flex items-center gap-2 xs:gap-3 text-[10px] xs:text-xs text-[#CCCCCC]/70 mb-2 xs:mb-3">
-                          <div className="flex items-center gap-1">
-                            <Calendar size={12} className="xs:w-3.5 xs:h-3.5" />
-                            <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                        <div className="flex items-center justify-between mb-2 xs:mb-3">
+                          <div className="flex items-center gap-2 xs:gap-3 text-[10px] xs:text-xs text-[#CCCCCC]/70">
+                            <div className="flex items-center gap-1">
+                              <Calendar size={12} className="xs:w-3.5 xs:h-3.5" />
+                              <span>{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <User size={12} className="xs:w-3.5 xs:h-3.5" />
+                              <span>{article.author}</span>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <User size={12} className="xs:w-3.5 xs:h-3.5" />
-                            <span>{article.author}</span>
-                          </div>
+                          <ShareButton 
+                            title={article.title}
+                            url="/news"
+                            excerpt={article.excerpt}
+                          />
                         </div>
                         
                         <p className="text-[#CCCCCC] text-xs xs:text-sm mb-2 xs:mb-3 line-clamp-3">
                           {article.excerpt}
                         </p>
                         
-                        <span className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
+                        <Link href="/news" className="text-white font-semibold text-xs xs:text-sm inline-flex items-center gap-1">
                           Read More →
-                        </span>
+                        </Link>
                       </div>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
