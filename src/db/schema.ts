@@ -61,3 +61,14 @@ export const merchandise = sqliteTable('merchandise', {
   available: integer('available').notNull().default(1),
   createdAt: text('created_at').notNull(),
 });
+
+export const competitionEntries = sqliteTable('competition_entries', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  firstName: text('first_name').notNull(),
+  lastName: text('last_name').notNull(),
+  gender: text('gender').notNull(),
+  age: integer('age').notNull(),
+  photoUrl: text('photo_url').notNull(),
+  submittedAt: text('submitted_at').notNull(),
+  email: text('email'),
+});
