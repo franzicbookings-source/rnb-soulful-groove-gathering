@@ -61,8 +61,8 @@ export const ShareButton = ({ title, url, excerpt }: ShareButtonProps) => {
 
     switch (platform) {
       case 'facebook':
-        // Use modern Facebook Share Dialog API
-        shareLink = `https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=${encodedUrl}&redirect_uri=${encodedUrl}`;
+        // Use simple Facebook sharer - works without app domain configuration
+        shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
         break;
       case 'twitter':
         shareLink = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
