@@ -38,16 +38,22 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Upload to Supabase Storage
-    const supabaseUrl = 'https://slelguoygbfzlpylpxfs.supabase.co';
-    const uploadUrl = `${supabaseUrl}/storage/v1/object/public/document-uploads/${fileName}`;
+    // Upload to Supabase Storage with proper authorization
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://slelguoygbfzlpylpxfs.supabase.co';
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseAnonKey) {
+      throw new Error('Supabase configuration missing');
+    }
+
+    const uploadUrl = `${supabaseUrl}/storage/v1/object/document-uploads/${fileName}`;
 
     const uploadResponse = await fetch(uploadUrl, {
       method: 'POST',
       body: buffer,
       headers: {
         'Content-Type': file.type,
-        'Content-Length': buffer.length.toString(),
+        'Authorization': `Bearer ${supabaseAnonKey}`,
       },
     });
 
