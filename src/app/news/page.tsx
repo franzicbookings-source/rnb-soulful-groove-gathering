@@ -5,6 +5,7 @@ import NavigationHeader from '@/components/NavigationHeader';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { Calendar, User, X } from 'lucide-react';
+import { ShareButton } from '@/components/ShareButton';
 
 interface Article {
   id: number;
@@ -181,6 +182,11 @@ export default function NewsPage() {
                   <User size={16} className="md:w-[18px] md:h-[18px]" />
                   <span>{selectedArticle.author}</span>
                 </div>
+                <ShareButton 
+                  title={selectedArticle.title}
+                  url="/news"
+                  excerpt={selectedArticle.excerpt}
+                />
               </div>
 
               <div 
